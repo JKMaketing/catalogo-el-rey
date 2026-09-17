@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jkmaketing.github.io/catalogo-el-rey/sitemap.xml
