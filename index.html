@@ -26,52 +26,57 @@
 <meta name="geo.position" content="4.8133;-75.6961">
 <meta name="ICBM" content="4.8133, -75.6961">
 <link rel="icon" type="image/png" href="logo.png">
+<link rel="dns-prefetch" href="https://catalogo-el-rey.vercel.app">
+<link rel="preconnect" href="https://catalogo-el-rey.vercel.app" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Nunito:wght@400;500;600;700;800&display=swap">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Nunito:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Nunito:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="preload" as="image" href="logo.png" fetchpriority="high">
+<link rel="preload" as="image" href="https://catalogo-el-rey.vercel.app/images/sala-boston/1.jpg" fetchpriority="high">
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":["LocalBusiness","FurnitureStore"],
-  "name":"Colchones El Rey",
-  "description":"Empresa 100% pereirana especializada en espumas y colchones. Más de 20 años en el mercado del Eje Cafetero.",
-  "url":"https://jkmaketing.github.io/catalogo-el-rey/",
-  "image":"https://jkmaketing.github.io/catalogo-el-rey/logo-full.png",
-  "priceRange":"$$",
-  "geo":{"@type":"GeoCoordinates","latitude":4.8133,"longitude":-75.6961},
-  "telephone":"+573104994691",
-  "address":{"@type":"PostalAddress","addressLocality":"Pereira","addressRegion":"Risaralda","addressCountry":"CO"},
-  "areaServed":["Pereira","Risaralda","Manizales","Caldas","Armenia","Quindío","Dosquebradas"],
-  "slogan":"Años vendiendo Colchones en Pereira"
+ "@context":"https://schema.org",
+ "@type":["LocalBusiness","FurnitureStore"],
+ "name":"Colchones El Rey",
+ "description":"Empresa 100% pereirana especializada en espumas y colchones. Más de 20 años en el mercado del Eje Cafetero.",
+ "url":"https://jkmaketing.github.io/catalogo-el-rey/",
+ "image":"https://jkmaketing.github.io/catalogo-el-rey/logo-full.png",
+ "priceRange":"$$",
+ "geo":{"@type":"GeoCoordinates","latitude":4.8133,"longitude":-75.6961},
+ "telephone":"+573104994691",
+ "address":{"@type":"PostalAddress","addressLocality":"Pereira","addressRegion":"Risaralda","addressCountry":"CO"},
+ "areaServed":["Pereira","Risaralda","Manizales","Caldas","Armenia","Quindío","Dosquebradas"],
+ "slogan":"Años vendiendo Colchones en Pereira"
 }
 </script>
 
 <style>
 :root{
-  --cr:#C12258;
-  --cr-d:#9B1530;
-  --cr-l:#D63070;
-  --cr-bg:#FDF0F3;
-  --cr-bg2:#FCE8EE;
-  --gold:#C9941A;
-  --gold-l:#E8B82E;
-  --gold-bg:#FDF6E7;
-  --bg:#FAFAF8;
-  --surface:#FFFFFF;
-  --sur2:#F5F1EE;
-  --text:#1C1717;
-  --text2:#6B5C5F;
-  --text3:#B0A0A3;
-  --border:#E4D8DB;
-  --wa:#25D366;
-  --wa-d:#1DA851;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'Nunito',system-ui,sans-serif;
-  --r:10px;
-  --r-lg:16px;
-  --sh:0 2px 16px rgba(193,34,88,.1);
-  --sh-md:0 4px 24px rgba(193,34,88,.16);
+ --cr:#C12258;
+ --cr-d:#9B1530;
+ --cr-l:#D63070;
+ --cr-bg:#FDF0F3;
+ --cr-bg2:#FCE8EE;
+ --gold:#C9941A;
+ --gold-l:#E8B82E;
+ --gold-bg:#FDF6E7;
+ --bg:#FAFAF8;
+ --surface:#FFFFFF;
+ --sur2:#F5F1EE;
+ --text:#1C1717;
+ --text2:#6B5C5F;
+ --text3:#B0A0A3;
+ --border:#E4D8DB;
+ --wa:#25D366;
+ --wa-d:#1DA851;
+ --serif:'Playfair Display',Georgia,serif;
+ --sans:'Nunito',system-ui,sans-serif;
+ --r:10px;
+ --r-lg:16px;
+ --sh:0 2px 16px rgba(193,34,88,.1);
+ --sh-md:0 4px 24px rgba(193,34,88,.16);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -81,191 +86,191 @@ a{color:inherit;text-decoration:none}
 
 /* NAV */
 .nav{
-  position:sticky;top:0;z-index:100;
-  background:var(--surface);
-  border-bottom:2px solid var(--cr-bg2);
-  padding:0 20px;
-  box-shadow:0 2px 12px rgba(0,0,0,.06);
+ position:sticky;top:0;z-index:100;
+ background:var(--surface);
+ border-bottom:2px solid var(--cr-bg2);
+ padding:0 20px;
+ box-shadow:0 2px 12px rgba(0,0,0,.06);
 }
 .nav-inner{
-  max-width:1160px;margin:0 auto;
-  display:flex;align-items:center;gap:16px;
-  height:64px;
+ max-width:1160px;margin:0 auto;
+ display:flex;align-items:center;gap:16px;
+ height:64px;
 }
 .nav-logo{height:44px;width:auto;object-fit:contain}
 .nav-logo-link{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
 .nav-brand{
-  font-family:var(--serif);font-size:1.1rem;font-weight:700;
-  color:var(--cr);line-height:1.2;
+ font-family:var(--serif);font-size:1.1rem;font-weight:700;
+ color:var(--cr);line-height:1.2;
 }
 .nav-brand span{display:block;font-size:.7rem;font-family:var(--sans);font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.08em}
 .nav-links{
-  display:flex;gap:4px;margin-left:auto;
-  list-style:none;
+ display:flex;gap:4px;margin-left:auto;
+ list-style:none;
 }
 .nav-links a{
-  padding:6px 14px;border-radius:var(--r);
-  font-weight:600;font-size:.9rem;color:var(--text2);
-  transition:background .2s,color .2s;
+ padding:6px 14px;border-radius:var(--r);
+ font-weight:600;font-size:.9rem;color:var(--text2);
+ transition:background .2s,color .2s;
 }
 .nav-links a:hover{background:var(--cr-bg);color:var(--cr)}
 .nav-wa{
-  display:flex;align-items:center;gap:6px;
-  background:var(--wa);color:#fff;
-  padding:7px 14px;border-radius:var(--r);
-  font-weight:700;font-size:.85rem;
-  transition:background .2s;white-space:nowrap;
+ display:flex;align-items:center;gap:6px;
+ background:var(--wa);color:#fff;
+ padding:7px 14px;border-radius:var(--r);
+ font-weight:700;font-size:.85rem;
+ transition:background .2s;white-space:nowrap;
 }
 .nav-wa:hover{background:var(--wa-d)}
 .hamburger{
-  display:none;flex-direction:column;justify-content:center;gap:5px;
-  width:36px;height:36px;cursor:pointer;border:none;background:none;
-  margin-left:auto;
+ display:none;flex-direction:column;justify-content:center;gap:5px;
+ width:36px;height:36px;cursor:pointer;border:none;background:none;
+ margin-left:auto;
 }
 .hamburger span{display:block;height:2px;width:22px;background:var(--cr);border-radius:2px;transition:.3s}
 .mobile-menu{
-  display:none;
-  flex-direction:column;gap:4px;
-  padding:12px 20px 16px;
-  background:var(--surface);
-  border-bottom:2px solid var(--cr-bg2);
+ display:none;
+ flex-direction:column;gap:4px;
+ padding:12px 20px 16px;
+ background:var(--surface);
+ border-bottom:2px solid var(--cr-bg2);
 }
 .mobile-menu.open{display:flex}
 .mobile-menu a{
-  padding:10px 14px;border-radius:var(--r);
-  font-weight:600;color:var(--text2);
+ padding:10px 14px;border-radius:var(--r);
+ font-weight:600;color:var(--text2);
 }
 .mobile-menu a:hover{background:var(--cr-bg);color:var(--cr)}
 .mobile-menu .nav-wa{justify-content:center;margin-top:4px}
 
 /* HERO */
 .hero{
-  background:linear-gradient(135deg,var(--cr-d) 0%,var(--cr) 55%,var(--cr-l) 100%);
-  color:#fff;
-  padding:72px 20px 80px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+ background:linear-gradient(135deg,var(--cr-d) 0%,var(--cr) 55%,var(--cr-l) 100%);
+ color:#fff;
+ padding:72px 20px 80px;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
 }
 .hero::before{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+ content:'';position:absolute;inset:0;
+ background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .hero-inner{max-width:760px;margin:0 auto;position:relative}
 .hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.3);
-  border-radius:100px;padding:6px 16px;
-  font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  margin-bottom:24px;
+ display:inline-flex;align-items:center;gap:8px;
+ background:rgba(255,255,255,.15);
+ border:1px solid rgba(255,255,255,.3);
+ border-radius:100px;padding:6px 16px;
+ font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+ margin-bottom:24px;
 }
 .hero h1{
-  font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);
-  font-weight:700;line-height:1.15;
-  margin-bottom:16px;text-wrap:balance;
+ font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);
+ font-weight:700;line-height:1.15;
+ margin-bottom:16px;text-wrap:balance;
 }
 .hero h1 em{font-style:italic;color:var(--gold-l)}
 .hero-sub{
-  font-size:clamp(1rem,2.5vw,1.15rem);
-  opacity:.9;margin-bottom:36px;max-width:540px;margin-left:auto;margin-right:auto;
+ font-size:clamp(1rem,2.5vw,1.15rem);
+ opacity:.9;margin-bottom:36px;max-width:540px;margin-left:auto;margin-right:auto;
 }
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .btn-wa{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--wa);color:#fff;
-  padding:14px 28px;border-radius:var(--r);
-  font-weight:700;font-size:1rem;
-  transition:transform .2s,background .2s;
+ display:inline-flex;align-items:center;gap:8px;
+ background:var(--wa);color:#fff;
+ padding:14px 28px;border-radius:var(--r);
+ font-weight:700;font-size:1rem;
+ transition:transform .2s,background .2s;
 }
 .btn-wa:hover{background:var(--wa-d);transform:translateY(-2px)}
 .btn-outline{
-  display:inline-flex;align-items:center;gap:8px;
-  border:2px solid rgba(255,255,255,.7);color:#fff;
-  padding:12px 26px;border-radius:var(--r);
-  font-weight:700;font-size:1rem;
-  transition:background .2s,border-color .2s;
+ display:inline-flex;align-items:center;gap:8px;
+ border:2px solid rgba(255,255,255,.7);color:#fff;
+ padding:12px 26px;border-radius:var(--r);
+ font-weight:700;font-size:1rem;
+ transition:background .2s,border-color .2s;
 }
 .btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
 .hero-wave{
-  position:absolute;bottom:-1px;left:0;right:0;
-  height:56px;background:var(--bg);
-  clip-path:ellipse(60% 100% at 50% 100%);
+ position:absolute;bottom:-1px;left:0;right:0;
+ height:56px;background:var(--bg);
+ clip-path:ellipse(60% 100% at 50% 100%);
 }
 
 /* CATALOG */
 .catalog{padding:72px 20px;max-width:1160px;margin:0 auto}
 .section-label{
-  font-size:.75rem;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--cr);margin-bottom:8px;
+ font-size:.75rem;font-weight:700;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--cr);margin-bottom:8px;
 }
 .section-title{
-  font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);
-  color:var(--text);margin-bottom:6px;text-wrap:balance;
+ font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);
+ color:var(--text);margin-bottom:6px;text-wrap:balance;
 }
 .section-sub{color:var(--text2);margin-bottom:36px;max-width:520px}
 
 .filters{
-  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;
+ display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;
 }
 .filter-btn{
-  padding:8px 18px;border-radius:100px;
-  border:2px solid var(--border);background:var(--surface);
-  font-family:var(--sans);font-weight:600;font-size:.85rem;color:var(--text2);
-  cursor:pointer;transition:all .2s;
+ padding:8px 18px;border-radius:100px;
+ border:2px solid var(--border);background:var(--surface);
+ font-family:var(--sans);font-weight:600;font-size:.85rem;color:var(--text2);
+ cursor:pointer;transition:all .2s;
 }
 .filter-btn:hover{border-color:var(--cr);color:var(--cr)}
 .filter-btn.active{border-color:var(--cr);background:var(--cr);color:#fff}
 
 .prod-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:24px;
+ display:grid;
+ grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+ gap:24px;
 }
 .prod-card{
-  background:#fff;border-radius:var(--r-lg);
-  overflow:hidden;box-shadow:0 2px 16px rgba(193,34,88,.10);
-  transition:transform .25s,box-shadow .25s;
+ background:#fff;border-radius:var(--r-lg);
+ overflow:hidden;box-shadow:0 2px 16px rgba(193,34,88,.10);
+ transition:transform .25s,box-shadow .25s;
 }
 .prod-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
 .prod-img{
-  position:relative;aspect-ratio:4/3;overflow:hidden;
-  background:var(--sur2);
+ position:relative;aspect-ratio:4/3;overflow:hidden;
+ background:var(--sur2);
 }
 .prod-img img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .35s;
+ width:100%;height:100%;object-fit:cover;
+ transition:transform .35s;
 }
 .prod-card:hover .prod-img img{transform:scale(1.06)}
 .prod-badge{
-  position:absolute;top:10px;left:10px;
-  background:var(--cr);color:#fff;
-  font-size:.7rem;font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;padding:3px 10px;border-radius:100px;
+ position:absolute;top:10px;left:10px;
+ background:var(--cr);color:#fff;
+ font-size:.7rem;font-weight:700;letter-spacing:.06em;
+ text-transform:uppercase;padding:3px 10px;border-radius:100px;
 }
 .prod-body{padding:20px 20px 22px}
 .prod-cat{
-  font-family:var(--sans);font-size:.68rem;font-weight:800;letter-spacing:.14em;
-  text-transform:uppercase;color:#C9941A;display:block;margin-bottom:6px;
+ font-family:var(--sans);font-size:.68rem;font-weight:800;letter-spacing:.14em;
+ text-transform:uppercase;color:#C9941A;display:block;margin-bottom:6px;
 }
 .prod-name{
-  font-family:var(--serif);font-size:1.2rem;font-weight:700;
-  color:#1C1717;margin-bottom:6px;line-height:1.25;
+ font-family:var(--serif);font-size:1.2rem;font-weight:700;
+ color:#1C1717;margin-bottom:6px;line-height:1.25;
 }
 .prod-name-sub{
-  display:block;font-family:var(--sans);font-size:.82rem;font-weight:600;
-  color:#6B5C5F;margin-bottom:14px;font-style:normal;letter-spacing:.01em;
+ display:block;font-family:var(--sans);font-size:.82rem;font-weight:600;
+ color:#6B5C5F;margin-bottom:14px;font-style:normal;letter-spacing:.01em;
 }
 .prod-desc{font-size:.8rem;color:#5A4D50;line-height:1.55;margin-bottom:14px;}
 .btn-cotizar{
-  display:inline-flex;align-items:center;gap:6px;
-  background:#fff;color:#C12258;
-  border:1.5px solid #C12258;
-  padding:9px 18px;border-radius:var(--r);
-  font-family:var(--sans);font-weight:700;font-size:.82rem;letter-spacing:.04em;
-  text-transform:uppercase;
-  transition:background .2s,color .2s,border-color .2s;
-  width:100%;justify-content:center;
+ display:inline-flex;align-items:center;gap:6px;
+ background:#fff;color:#C12258;
+ border:1.5px solid #C12258;
+ padding:9px 18px;border-radius:var(--r);
+ font-family:var(--sans);font-weight:700;font-size:.82rem;letter-spacing:.04em;
+ text-transform:uppercase;
+ transition:background .2s,color .2s,border-color .2s;
+ width:100%;justify-content:center;
 }
 .btn-cotizar:hover{background:#C12258;color:#fff}
 .btn-cotizar svg{flex-shrink:0}
@@ -273,34 +278,34 @@ a{color:inherit;text-decoration:none}
 /* ABOUT */
 .about{background:#fff;color:#1C1717;padding:80px 20px}
 .about-inner{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+ max-width:1100px;margin:0 auto;
+ display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
 }
 .about-logo-wrap{
-  display:flex;align-items:center;justify-content:center;
-  background:#fff;
-  border-radius:var(--r-lg);padding:32px;
-  border:1px solid #E4D8DB;
-  box-shadow:0 2px 20px rgba(193,34,88,.08);
+ display:flex;align-items:center;justify-content:center;
+ background:#fff;
+ border-radius:var(--r-lg);padding:32px;
+ border:1px solid #E4D8DB;
+ box-shadow:0 2px 20px rgba(193,34,88,.08);
 }
 .about-logo{max-width:340px;width:100%}
 .about-label{
-  font-size:.75rem;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:#C12258;margin-bottom:12px;
+ font-size:.75rem;font-weight:700;letter-spacing:.12em;
+ text-transform:uppercase;color:#C12258;margin-bottom:12px;
 }
 .about h2{
-  font-family:var(--serif);font-size:clamp(1.7rem,3.5vw,2.4rem);
-  line-height:1.2;margin-bottom:20px;text-wrap:balance;color:#1C1717;
+ font-family:var(--serif);font-size:clamp(1.7rem,3.5vw,2.4rem);
+ line-height:1.2;margin-bottom:20px;text-wrap:balance;color:#1C1717;
 }
 .about h2 em{font-style:italic;color:#C9941A}
 .about p{color:#4A3D40;font-size:1.02rem;line-height:1.7;margin-bottom:16px}
 .about-stats{
-  display:flex;gap:32px;margin-top:28px;flex-wrap:wrap;
+ display:flex;gap:32px;margin-top:28px;flex-wrap:wrap;
 }
 .stat{text-align:center}
 .stat-n{
-  font-family:var(--serif);font-size:2.2rem;font-weight:700;
-  color:#C12258;display:block;line-height:1;
+ font-family:var(--serif);font-size:2.2rem;font-weight:700;
+ color:#C12258;display:block;line-height:1;
 }
 .stat-l{font-size:.78rem;color:#4A3D40;text-transform:uppercase;letter-spacing:.08em}
 
@@ -309,110 +314,110 @@ a{color:inherit;text-decoration:none}
 .zones-inner{max-width:1100px;margin:0 auto;text-align:center}
 .zones-inner .section-sub{margin-left:auto;margin-right:auto}
 .zone-chips{
-  display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px;
+ display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px;
 }
 .zone-chip{
-  display:flex;align-items:center;gap:8px;
-  background:var(--surface);color:var(--cr-d);
-  border:2px solid var(--border);
-  padding:10px 20px;border-radius:100px;
-  font-weight:700;font-size:.9rem;
-  box-shadow:0 2px 8px rgba(193,34,88,.08);
+ display:flex;align-items:center;gap:8px;
+ background:var(--surface);color:var(--cr-d);
+ border:2px solid var(--border);
+ padding:10px 20px;border-radius:100px;
+ font-weight:700;font-size:.9rem;
+ box-shadow:0 2px 8px rgba(193,34,88,.08);
 }
 .zone-chip svg{color:var(--cr)}
 
 /* CTA */
 .cta-section{
-  background:linear-gradient(135deg,var(--cr-d),var(--cr));
-  color:#fff;padding:72px 20px;text-align:center;
+ background:linear-gradient(135deg,var(--cr-d),var(--cr));
+ color:#fff;padding:72px 20px;text-align:center;
 }
 .cta-inner{max-width:620px;margin:0 auto}
 .cta-section h2{
-  font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);
-  margin-bottom:16px;text-wrap:balance;
+ font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);
+ margin-bottom:16px;text-wrap:balance;
 }
 .cta-section p{opacity:.9;margin-bottom:32px;font-size:1.05rem}
 .btn-wa-lg{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--wa);color:#fff;
-  padding:16px 36px;border-radius:var(--r);
-  font-weight:800;font-size:1.1rem;
-  transition:transform .2s,background .2s;
+ display:inline-flex;align-items:center;gap:10px;
+ background:var(--wa);color:#fff;
+ padding:16px 36px;border-radius:var(--r);
+ font-weight:800;font-size:1.1rem;
+ transition:transform .2s,background .2s;
 }
 .btn-wa-lg:hover{background:var(--wa-d);transform:translateY(-2px)}
 
 /* FOOTER */
 footer{
-  background:#2D0F1A;color:rgba(255,255,255,.78);
-  padding:48px 20px 32px;
+ background:#2D0F1A;color:rgba(255,255,255,.78);
+ padding:48px 20px 32px;
 }
 .footer-inner{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;
-  margin-bottom:36px;
+ max-width:1100px;margin:0 auto;
+ display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;
+ margin-bottom:36px;
 }
 .footer-logo{height:48px;margin-bottom:14px;opacity:.9}
 .footer-desc{font-size:.88rem;line-height:1.65;max-width:280px;color:rgba(255,255,255,.72)}
 .footer-col h4{
-  font-family:var(--serif);font-size:1rem;color:#E8B82E;
-  margin-bottom:14px;font-weight:700;letter-spacing:.02em;
+ font-family:var(--serif);font-size:1rem;color:#E8B82E;
+ margin-bottom:14px;font-weight:700;letter-spacing:.02em;
 }
 .footer-col a{
-  display:block;font-size:.88rem;margin-bottom:8px;
-  color:rgba(255,255,255,.70);transition:color .2s;
+ display:block;font-size:.88rem;margin-bottom:8px;
+ color:rgba(255,255,255,.70);transition:color .2s;
 }
 .footer-col a:hover{color:#E8B82E}
 .footer-bottom{
-  max-width:1100px;margin:0 auto;
-  border-top:1px solid rgba(255,255,255,.15);
-  padding-top:20px;
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:8px;font-size:.8rem;color:rgba(255,255,255,.55);
+ max-width:1100px;margin:0 auto;
+ border-top:1px solid rgba(255,255,255,.15);
+ padding-top:20px;
+ display:flex;justify-content:space-between;align-items:center;
+ flex-wrap:wrap;gap:8px;font-size:.8rem;color:rgba(255,255,255,.55);
 }
 .footer-bottom .cr{color:#E8B82E}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  .nav-links,.nav-wa{display:none}
-  .hamburger{display:flex}
-  .about-inner{grid-template-columns:1fr;gap:40px}
-  .footer-inner{grid-template-columns:1fr;gap:28px}
-  .footer-desc{max-width:none}
+ .nav-links,.nav-wa{display:none}
+ .hamburger{display:flex}
+ .about-inner{grid-template-columns:1fr;gap:40px}
+ .footer-inner{grid-template-columns:1fr;gap:28px}
+ .footer-desc{max-width:none}
 }
 @media(max-width:480px){
-  .hero{padding:56px 16px 68px}
-  .catalog,.zones,.about,.cta-section{padding:56px 16px}
-  .prod-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+ .hero{padding:56px 16px 68px}
+ .catalog,.zones,.about,.cta-section{padding:56px 16px}
+ .prod-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
 }
 
 /* Dark mode */
 @media(prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#16100F;
-    --surface:#231515;
-    --sur2:#2A1A1A;
-    --text:#F5EEF0;
-    --text2:#C4A8AD;
-    --text3:#7A6066;
-    --border:#3D2530;
-    --cr-bg:#2A0F18;
-    --cr-bg2:#3D1525;
-    --gold-bg:#2A1F08;
-    --sh:0 2px 16px rgba(0,0,0,.35);
-    --sh-md:0 4px 24px rgba(0,0,0,.5);
-  }
+ :root:not([data-theme="light"]){
+ --bg:#16100F;
+ --surface:#231515;
+ --sur2:#2A1A1A;
+ --text:#F5EEF0;
+ --text2:#C4A8AD;
+ --text3:#7A6066;
+ --border:#3D2530;
+ --cr-bg:#2A0F18;
+ --cr-bg2:#3D1525;
+ --gold-bg:#2A1F08;
+ --sh:0 2px 16px rgba(0,0,0,.35);
+ --sh-md:0 4px 24px rgba(0,0,0,.5);
+ }
 }
 :root[data-theme="dark"]{
-  --bg:#16100F;
-  --surface:#231515;
-  --sur2:#2A1A1A;
-  --text:#F5EEF0;
-  --text2:#C4A8AD;
-  --text3:#7A6066;
-  --border:#3D2530;
-  --cr-bg:#2A0F18;
-  --cr-bg2:#3D1525;
-  --gold-bg:#2A1F08;
+ --bg:#16100F;
+ --surface:#231515;
+ --sur2:#2A1A1A;
+ --text:#F5EEF0;
+ --text2:#C4A8AD;
+ --text3:#7A6066;
+ --border:#3D2530;
+ --cr-bg:#2A0F18;
+ --cr-bg2:#3D1525;
+ --gold-bg:#2A1F08;
 }
 /* ── Lightbox ─────────────────────────────────────────────── */
 .lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9900;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .22s}
@@ -440,639 +445,642 @@ footer{
 </style>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" hidden>
+ <symbol id="ic-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></symbol>
+</svg>
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo-link" aria-label="Inicio">
-  <img class="nav-logo" src="logo.png" alt="Colchones El Rey" width="44" height="44">
-    </a>
-    <div class="nav-brand">
-      Colchones El Rey
-      <span>Espumas &amp; Colchones</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#catalogo">Catálogo</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#zonas">Zonas</a></li>
-    </ul>
-    <a class="nav-wa" href="https://wa.me/573104994691" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      WhatsApp
-    </a>
-    <button class="hamburger" id="hamBtn" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#catalogo">Catálogo</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#zonas">Zonas de entrega</a>
-    <a class="nav-wa" href="https://wa.me/573104994691" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      Cotizar por WhatsApp
-    </a>
-  </div>
+ <div class="nav-inner">
+ <a href="#" class="nav-logo-link" aria-label="Inicio">
+ <img class="nav-logo" src="logo.png" alt="Colchones El Rey" width="44" height="44">
+ </a>
+ <div class="nav-brand">
+ Colchones El Rey
+ <span>Espumas &amp; Colchones</span>
+ </div>
+ <ul class="nav-links">
+ <li><a href="#catalogo">Catálogo</a></li>
+ <li><a href="#nosotros">Nosotros</a></li>
+ <li><a href="#zonas">Zonas</a></li>
+ </ul>
+ <a class="nav-wa" href="https://wa.me/573104994691" target="_blank" rel="noopener">
+ <svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ WhatsApp
+ </a>
+ <button class="hamburger" id="hamBtn" aria-label="Menú">
+ <span></span><span></span><span></span>
+ </button>
+ </div>
+ <div class="mobile-menu" id="mobileMenu">
+ <a href="#catalogo">Catálogo</a>
+ <a href="#nosotros">Nosotros</a>
+ <a href="#zonas">Zonas de entrega</a>
+ <a class="nav-wa" href="https://wa.me/573104994691" target="_blank" rel="noopener">
+ <svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar por WhatsApp
+ </a>
+ </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>
-      Empresa 100% Pereirana
-    </div>
-    <h1>
-      <em>Años vendiendo</em><br>
-      Colchones en Pereira
-    </h1>
-    <p class="hero-sub">La tienda de confianza del Eje Cafetero — espumas, colchones, salas, comedores y más. Calidad, precio justo y atención personalizada.</p>
-    <div class="hero-btns">
-      <a class="btn-wa" href="https://wa.me/573104994691?text=Hola%2C%20quisiera%20cotizar%20un%20producto" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-        Cotizar ahora
-      </a>
-      <a class="btn-outline" href="#catalogo">Ver catálogo completo</a>
-    </div>
-  </div>
-  <div class="hero-wave"></div>
+ <div class="hero-inner">
+ <div class="hero-eyebrow">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>
+ Empresa 100% Pereirana
+ </div>
+ <h1>
+ <em>Años vendiendo</em><br>
+ Colchones en Pereira
+ </h1>
+ <p class="hero-sub">La tienda de confianza del Eje Cafetero — espumas, colchones, salas, comedores y más. Calidad, precio justo y atención personalizada.</p>
+ <div class="hero-btns">
+ <a class="btn-wa" href="https://wa.me/573104994691?text=Hola%2C%20quisiera%20cotizar%20un%20producto" target="_blank" rel="noopener">
+ <svg width="18" height="18" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar ahora
+ </a>
+ <a class="btn-outline" href="#catalogo">Ver catálogo completo</a>
+ </div>
+ </div>
+ <div class="hero-wave"></div>
 </section>
 
 <!-- CATALOG -->
 <section class="catalog" id="catalogo">
-  <div class="section-label">Catálogo completo</div>
-  <h2 class="section-title">Catálogo de Muebles y Colchones en Pereira</h2>
-  <p class="section-sub">Explora toda nuestra selección — salas, comedores, colchones, camas y decoración. Cotiza por WhatsApp en segundos.</p>
+ <div class="section-label">Catálogo completo</div>
+ <h2 class="section-title">Catálogo de Muebles y Colchones en Pereira</h2>
+ <p class="section-sub">Explora toda nuestra selección — salas, comedores, colchones, camas y decoración. Cotiza por WhatsApp en segundos.</p>
 
-  <div class="filters" role="group" aria-label="Filtrar por categoría">
-    <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="sala">Salas</button>
-    <button class="filter-btn" data-filter="comedor">Comedores</button>
-    <button class="filter-btn" data-filter="colchon">Colchones &amp; Camas</button>
-    <button class="filter-btn" data-filter="deco">Decoración</button>
-  </div>
+ <div class="filters" role="group" aria-label="Filtrar por categoría">
+ <button class="filter-btn active" data-filter="all">Todos</button>
+ <button class="filter-btn" data-filter="sala">Salas</button>
+ <button class="filter-btn" data-filter="comedor">Comedores</button>
+ <button class="filter-btn" data-filter="colchon">Colchones &amp; Camas</button>
+ <button class="filter-btn" data-filter="deco">Decoración</button>
+ </div>
 
-  <div class="prod-grid">
+ <div class="prod-grid">
 
-    <!-- SALAS -->
-    <article class="prod-card" data-cat="sala">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/sala-boston/1.jpg" alt="Sala Boston" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Sala</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Sala de estar</span>
-        <h3 class="prod-name">Sala Boston</h3>
-          <p class="prod-desc">Sala de estar tapizada en tela premium, 3+2 puestos. Diseño moderno para el hogar pereiano.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Boston" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <!-- SALAS -->
+ <article class="prod-card" data-cat="sala">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/sala-boston/1.jpg" alt="Sala Boston" fetchpriority="high" width="400" height="300">
+ <span class="prod-badge">Sala</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Sala de estar</span>
+ <h3 class="prod-name">Sala Boston</h3>
+ <p class="prod-desc">Sala de estar tapizada en tela premium, 3+2 puestos. Diseño moderno para el hogar pereiano.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Boston" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="sala">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/sala-nube/1.jpg" alt="Sala Nube" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Sala</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Sala de estar</span>
-        <h3 class="prod-name">Sala Nube</h3>
-          <p class="prod-desc">Sofá suave y confortable con diseño contemporáneo. Disponible en múltiples colores.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Nube" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="sala">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/sala-nube/1.jpg" alt="Sala Nube" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Sala</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Sala de estar</span>
+ <h3 class="prod-name">Sala Nube</h3>
+ <p class="prod-desc">Sofá suave y confortable con diseño contemporáneo. Disponible en múltiples colores.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Nube" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="sala">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/sala-vancouver/1.jpg" alt="Sala Vancouver" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Sala</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Sala de estar</span>
-        <h3 class="prod-name">Sala Vancouver</h3>
-          <p class="prod-desc">Sala de líneas minimalistas, ideal para espacios amplios. Alta durabilidad.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Vancouver" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="sala">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/sala-vancouver/1.jpg" alt="Sala Vancouver" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Sala</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Sala de estar</span>
+ <h3 class="prod-name">Sala Vancouver</h3>
+ <p class="prod-desc">Sala de líneas minimalistas, ideal para espacios amplios. Alta durabilidad.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Vancouver" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="sala">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/sala-venecia/1.jpg" alt="Sala Venecia" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Sala</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Sala de estar</span>
-        <h3 class="prod-name">Sala Venecia</h3>
-          <p class="prod-desc">Sala elegante con tapizado duradero y estética italiana. Perfecta para salas de estar.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Venecia" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="sala">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/sala-venecia/1.jpg" alt="Sala Venecia" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Sala</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Sala de estar</span>
+ <h3 class="prod-name">Sala Venecia</h3>
+ <p class="prod-desc">Sala elegante con tapizado duradero y estética italiana. Perfecta para salas de estar.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Venecia" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="sala">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/sala-alemana/1.jpg" alt="Sala Alemana" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Sala</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Sala de estar</span>
-        <h3 class="prod-name">Sala Alemana</h3>
-          <p class="prod-desc">Sala de estilo europeo en tela resistente y de fácil mantenimiento.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Alemana" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="sala">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/sala-alemana/1.jpg" alt="Sala Alemana" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Sala</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Sala de estar</span>
+ <h3 class="prod-name">Sala Alemana</h3>
+ <p class="prod-desc">Sala de estilo europeo en tela resistente y de fácil mantenimiento.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Alemana" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="sala">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/sala-capriani/1.jpg" alt="Sala Capriani" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Sala</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Sala de estar</span>
-        <h3 class="prod-name">Sala Capriani</h3>
-          <p class="prod-desc">Sala con detalles decorativos únicos y tapizado de alta calidad.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Capriani" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="sala">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/sala-capriani/1.jpg" alt="Sala Capriani" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Sala</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Sala de estar</span>
+ <h3 class="prod-name">Sala Capriani</h3>
+ <p class="prod-desc">Sala con detalles decorativos únicos y tapizado de alta calidad.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Capriani" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="sala">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/sala-luxury/1.jpg" alt="Sala Luxury" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Sala</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Sala de estar</span>
-        <h3 class="prod-name">Sala Luxury</h3>
-          <p class="prod-desc">Sala premium con tapizado de lujo y acabados de primera categoría.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Luxury" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="sala">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/sala-luxury/1.jpg" alt="Sala Luxury" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Sala</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Sala de estar</span>
+ <h3 class="prod-name">Sala Luxury</h3>
+ <p class="prod-desc">Sala premium con tapizado de lujo y acabados de primera categoría.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Luxury" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="sala">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/sala-roma/1.jpg" alt="Sala Roma" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Sala</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Sala de estar</span>
-        <h3 class="prod-name">Sala Roma</h3>
-          <p class="prod-desc">Sala de estilo clásico, confort y elegancia para toda la familia.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Roma" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="sala">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/sala-roma/1.jpg" alt="Sala Roma" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Sala</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Sala de estar</span>
+ <h3 class="prod-name">Sala Roma</h3>
+ <p class="prod-desc">Sala de estilo clásico, confort y elegancia para toda la familia.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Sala%20Roma" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <!-- COMEDORES -->
-    <article class="prod-card" data-cat="comedor">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/comedor-milan/1.jpg" alt="Comedor Milán" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Comedor</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Comedor</span>
-        <h3 class="prod-name">Comedor Milán</h3>
-          <p class="prod-desc">Comedor 6 puestos en madera sólida con sillas tapizadas. Diseño italiano.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Mil%C3%A1n" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <!-- COMEDORES -->
+ <article class="prod-card" data-cat="comedor">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/comedor-milan/1.jpg" alt="Comedor Milán" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Comedor</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Comedor</span>
+ <h3 class="prod-name">Comedor Milán</h3>
+ <p class="prod-desc">Comedor 6 puestos en madera sólida con sillas tapizadas. Diseño italiano.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Mil%C3%A1n" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="comedor">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/comedor-grecia/1.jpg" alt="Comedor Grecia" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Comedor</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Comedor</span>
-        <h3 class="prod-name">Comedor Grecia</h3>
-          <p class="prod-desc">Comedor elegante con mesa y sillas de alta resistencia para el diario.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Grecia" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="comedor">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/comedor-grecia/1.jpg" alt="Comedor Grecia" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Comedor</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Comedor</span>
+ <h3 class="prod-name">Comedor Grecia</h3>
+ <p class="prod-desc">Comedor elegante con mesa y sillas de alta resistencia para el diario.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Grecia" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="comedor">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/comedor-florencia/1.jpg" alt="Comedor Florencia" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Comedor</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Comedor</span>
-        <h3 class="prod-name">Comedor Florencia</h3>
-          <p class="prod-desc">Comedor con acabados finos en madera de primera calidad y estilo europeo.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Florencia" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="comedor">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/comedor-florencia/1.jpg" alt="Comedor Florencia" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Comedor</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Comedor</span>
+ <h3 class="prod-name">Comedor Florencia</h3>
+ <p class="prod-desc">Comedor con acabados finos en madera de primera calidad y estilo europeo.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Florencia" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="comedor">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/comedor-italia/1.jpg" alt="Comedor Italia" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Comedor</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Comedor</span>
-        <h3 class="prod-name">Comedor Italia</h3>
-          <p class="prod-desc">Mesa de comedor 4-6 puestos con diseño moderno y atemporal.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Italia" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="comedor">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/comedor-italia/1.jpg" alt="Comedor Italia" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Comedor</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Comedor</span>
+ <h3 class="prod-name">Comedor Italia</h3>
+ <p class="prod-desc">Mesa de comedor 4-6 puestos con diseño moderno y atemporal.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Italia" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="comedor">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/comedor-madrid/1.jpg" alt="Comedor Madrid" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Comedor</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Comedor</span>
-        <h3 class="prod-name">Comedor Madrid</h3>
-          <p class="prod-desc">Comedor en madera con sillas tapizadas. Clásico, robusto y duradero.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Madrid" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="comedor">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/comedor-madrid/1.jpg" alt="Comedor Madrid" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Comedor</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Comedor</span>
+ <h3 class="prod-name">Comedor Madrid</h3>
+ <p class="prod-desc">Comedor en madera con sillas tapizadas. Clásico, robusto y duradero.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Madrid" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="comedor">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/comedor-cuchara/1.jpg" alt="Comedor Cuchara" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Comedor</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Comedor</span>
-        <h3 class="prod-name">Comedor Cuchara</h3>
-          <p class="prod-desc">Comedor moderno y funcional, perfecto para comedores pequeños.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Cuchara" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="comedor">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/comedor-cuchara/1.jpg" alt="Comedor Cuchara" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Comedor</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Comedor</span>
+ <h3 class="prod-name">Comedor Cuchara</h3>
+ <p class="prod-desc">Comedor moderno y funcional, perfecto para comedores pequeños.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20Cuchara" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="comedor">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/comedor-pvc/1.jpg" alt="Comedor PVC" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Comedor</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Comedor</span>
-        <h3 class="prod-name">Comedor PVC</h3>
-          <p class="prod-desc">Comedor en PVC de fácil limpieza. Ideal para cocinas y espacios de alto tráfico.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20PVC" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="comedor">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/comedor-pvc/1.jpg" alt="Comedor PVC" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Comedor</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Comedor</span>
+ <h3 class="prod-name">Comedor PVC</h3>
+ <p class="prod-desc">Comedor en PVC de fácil limpieza. Ideal para cocinas y espacios de alto tráfico.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20el%20Comedor%20PVC" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <!-- COLCHONES & CAMAS -->
-    <article class="prod-card" data-cat="colchon">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/colchon-granduque/1.jpg" alt="Colchón Granduque" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Colchón</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Colchón</span>
-        <h3 class="prod-name">Colchón Granduque</h3>
-          <p class="prod-desc">Colchón de espuma de alta densidad fabricado en Pereira. Descanso y soporte garantizados.</p>
-        <a class="btn-cotizar" href="https://wa.me/573206777716?text=Hola%2C%20quiero%20cotizar%20el%20Colch%C3%B3n%20Granduque" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <!-- COLCHONES & CAMAS -->
+ <article class="prod-card" data-cat="colchon">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/colchon-granduque/1.jpg" alt="Colchón Granduque" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Colchón</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Colchón</span>
+ <h3 class="prod-name">Colchón Granduque</h3>
+ <p class="prod-desc">Colchón de espuma de alta densidad fabricado en Pereira. Descanso y soporte garantizados.</p>
+ <a class="btn-cotizar" href="https://wa.me/573206777716?text=Hola%2C%20quiero%20cotizar%20el%20Colch%C3%B3n%20Granduque" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="colchon">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/cama-nube/1.jpg" alt="Cama Nube" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Cama</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Cama</span>
-        <h3 class="prod-name">Cama Nube</h3>
-          <p class="prod-desc">Cama doble con estructura robusta y diseño contemporáneo. Entrega en todo el Eje Cafetero.</p>
-        <a class="btn-cotizar" href="https://wa.me/573206777716?text=Hola%2C%20quiero%20cotizar%20la%20Cama%20Nube" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="colchon">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/cama-nube/1.jpg" alt="Cama Nube" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Cama</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Cama</span>
+ <h3 class="prod-name">Cama Nube</h3>
+ <p class="prod-desc">Cama doble con estructura robusta y diseño contemporáneo. Entrega en todo el Eje Cafetero.</p>
+ <a class="btn-cotizar" href="https://wa.me/573206777716?text=Hola%2C%20quiero%20cotizar%20la%20Cama%20Nube" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <article class="prod-card" data-cat="colchon">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/sofacama-carrito/1.jpg" alt="Sofacama Carrito" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Sofacama</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Sofacama</span>
-        <h3 class="prod-name">Sofacama Carrito</h3>
-          <p class="prod-desc">Sofacama multifuncional ideal para espacios pequeños y cuartos de huéspedes.</p>
-        <a class="btn-cotizar" href="https://wa.me/573206777716?text=Hola%2C%20quiero%20cotizar%20el%20Sofacama%20Carrito" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <article class="prod-card" data-cat="colchon">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/sofacama-carrito/1.jpg" alt="Sofacama Carrito" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Sofacama</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Sofacama</span>
+ <h3 class="prod-name">Sofacama Carrito</h3>
+ <p class="prod-desc">Sofacama multifuncional ideal para espacios pequeños y cuartos de huéspedes.</p>
+ <a class="btn-cotizar" href="https://wa.me/573206777716?text=Hola%2C%20quiero%20cotizar%20el%20Sofacama%20Carrito" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-    <!-- DECORACION -->
-    <article class="prod-card" data-cat="deco">
-      <div class="prod-img">
-        <img src="https://catalogo-el-rey.vercel.app/images/luna-de-pared/1.jpg" alt="Luna de Pared" loading="lazy" width="400" height="300">
-        <span class="prod-badge">Decoración</span>
-      </div>
-      <div class="prod-body">
-        <span class="prod-cat">Decoración</span>
-        <h3 class="prod-name">Luna de Pared</h3>
-          <p class="prod-desc">Espejo luna decorativo para sala o dormitorio. Añade amplitud y elegancia al espacio.</p>
-        <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Luna%20de%20Pared" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          Cotizar
-        </a>
-      </div>
-    </article>
+ <!-- DECORACION -->
+ <article class="prod-card" data-cat="deco">
+ <div class="prod-img">
+ <img src="https://catalogo-el-rey.vercel.app/images/luna-de-pared/1.jpg" alt="Luna de Pared" loading="lazy" width="400" height="300">
+ <span class="prod-badge">Decoración</span>
+ </div>
+ <div class="prod-body">
+ <span class="prod-cat">Decoración</span>
+ <h3 class="prod-name">Luna de Pared</h3>
+ <p class="prod-desc">Espejo luna decorativo para sala o dormitorio. Añade amplitud y elegancia al espacio.</p>
+ <a class="btn-cotizar" href="https://wa.me/573104994691?text=Hola%2C%20quiero%20cotizar%20la%20Luna%20de%20Pared" target="_blank" rel="noopener">
+ <svg width="14" height="14" fill="currentColor" aria-hidden="true"><use href="#ic-wa"/></svg>
+ Cotizar
+ </a>
+ </div>
+ </article>
 
-  </div>
+ </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="nosotros">
-  <div class="about-inner">
-    <div class="about-logo-wrap">
-      <img class="about-logo" src="logo-full.png" alt="Colchones El Rey — Espumas & Colchones" width="340" height="160">
-    </div>
-    <div class="about-text">
-      <div class="about-label">Quiénes somos</div>
-      <h2>La empresa <em>100% pereirana</em> de espumas y colchones</h2>
-      <p>Colchones El Rey nació en Pereira con un solo objetivo: llevar descanso y confort a los hogares del Eje Cafetero. Con más de 20 años en el mercado, somos la tienda de confianza de miles de familias en Risaralda, Caldas y Quindío.</p>
-      <p>Trabajamos con los mejores materiales, ofrecemos precios justos y atendemos a cada cliente como si fuera el único. Nuestro catálogo incluye colchones, espumas, salas, comedores y decoración — todo bajo un mismo techo.</p>
-      <div class="about-stats">
-        <div class="stat">
-          <span class="stat-n">+20</span>
-          <span class="stat-l">Años en el mercado</span>
-        </div>
-        <div class="stat">
-          <span class="stat-n">3</span>
-          <span class="stat-l">Departamentos</span>
-        </div>
-        <div class="stat">
-          <span class="stat-n">+20</span>
-          <span class="stat-l">Productos</span>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="about-inner">
+ <div class="about-logo-wrap">
+ <img class="about-logo" src="logo-full.png" alt="Colchones El Rey — Espumas & Colchones" width="340" height="160">
+ </div>
+ <div class="about-text">
+ <div class="about-label">Quiénes somos</div>
+ <h2>La empresa <em>100% pereirana</em> de espumas y colchones</h2>
+ <p>Colchones El Rey nació en Pereira con un solo objetivo: llevar descanso y confort a los hogares del Eje Cafetero. Con más de 20 años en el mercado, somos la tienda de confianza de miles de familias en Risaralda, Caldas y Quindío.</p>
+ <p>Trabajamos con los mejores materiales, ofrecemos precios justos y atendemos a cada cliente como si fuera el único. Nuestro catálogo incluye colchones, espumas, salas, comedores y decoración — todo bajo un mismo techo.</p>
+ <div class="about-stats">
+ <div class="stat">
+ <span class="stat-n">+20</span>
+ <span class="stat-l">Años en el mercado</span>
+ </div>
+ <div class="stat">
+ <span class="stat-n">3</span>
+ <span class="stat-l">Departamentos</span>
+ </div>
+ <div class="stat">
+ <span class="stat-n">+20</span>
+ <span class="stat-l">Productos</span>
+ </div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ZONES -->
 <section class="zones" id="zonas">
-  <div class="zones-inner">
-    <div class="section-label">Cobertura</div>
-    <h2 class="section-title">Llegamos a todo el Eje Cafetero</h2>
-    <p class="section-sub">Hacemos envíos y entregas en toda la región. Cotiza ahora y recibe en tu ciudad.</p>
-    <div class="zone-chips">
-      <div class="zone-chip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Pereira
-      </div>
-      <div class="zone-chip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Dosquebradas
-      </div>
-      <div class="zone-chip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Santa Rosa de Cabal
-      </div>
-      <div class="zone-chip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Manizales
-      </div>
-      <div class="zone-chip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Armenia
-      </div>
-      <div class="zone-chip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Cartago
-      </div>
-      <div class="zone-chip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        La Virginia
-      </div>
-      <div class="zone-chip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Marsella
-      </div>
-    </div>
-  </div>
+ <div class="zones-inner">
+ <div class="section-label">Cobertura</div>
+ <h2 class="section-title">Llegamos a todo el Eje Cafetero</h2>
+ <p class="section-sub">Hacemos envíos y entregas en toda la región. Cotiza ahora y recibe en tu ciudad.</p>
+ <div class="zone-chips">
+ <div class="zone-chip">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ Pereira
+ </div>
+ <div class="zone-chip">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ Dosquebradas
+ </div>
+ <div class="zone-chip">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ Santa Rosa de Cabal
+ </div>
+ <div class="zone-chip">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ Manizales
+ </div>
+ <div class="zone-chip">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ Armenia
+ </div>
+ <div class="zone-chip">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ Cartago
+ </div>
+ <div class="zone-chip">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ La Virginia
+ </div>
+ <div class="zone-chip">
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ Marsella
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-  <div class="cta-inner">
-    <h2>¿Listo para renovar tu hogar?</h2>
-    <p>Escríbenos ahora y recibe asesoría personalizada. Cotizamos sin compromiso.</p>
-    <a class="btn-wa-lg" href="https://wa.me/573104994691?text=Hola%2C%20quisiera%20cotizar%20un%20producto%20de%20Colchones%20El%20Rey" target="_blank" rel="noopener">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      Cotizar por WhatsApp
-    </a>
-  </div>
+ <div class="cta-inner">
+ <h2>¿Listo para renovar tu hogar?</h2>
+ <p>Escríbenos ahora y recibe asesoría personalizada. Cotizamos sin compromiso.</p>
+ <a class="btn-wa-lg" href="https://wa.me/573104994691?text=Hola%2C%20quisiera%20cotizar%20un%20producto%20de%20Colchones%20El%20Rey" target="_blank" rel="noopener">
+ <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.044L.787 23.204a.5.5 0 00.614.614l4.16-1.493A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.188 0-4.218-.633-5.932-1.727l-.424-.264-3.313 1.188 1.188-3.246-.275-.44A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+ Cotizar por WhatsApp
+ </a>
+ </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div>
-      <img class="footer-logo" src="logo.png" alt="Colchones El Rey" width="48" height="48">
-      <p class="footer-desc">La tienda 100% pereirana de espumas y colchones. Calidad, precio justo y atención personalizada en el Eje Cafetero.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Catálogo</h4>
-      <a href="#catalogo">Salas</a>
-      <a href="#catalogo">Comedores</a>
-      <a href="#catalogo">Colchones</a>
-      <a href="#catalogo">Decoración</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contacto</h4>
-      <a href="https://wa.me/573104994691" target="_blank" rel="noopener">+57 310 499 4691</a>
-      <a href="#zonas">Zonas de entrega</a>
-      <a href="#nosotros">Nosotros</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 <span class="cr">Colchones El Rey</span> — Pereira, Risaralda</span>
-    <span>Hecho con ♥ en Colombia</span>
-  </div>
+ <div class="footer-inner">
+ <div>
+ <img class="footer-logo" src="logo.png" alt="Colchones El Rey" width="48" height="48">
+ <p class="footer-desc">La tienda 100% pereirana de espumas y colchones. Calidad, precio justo y atención personalizada en el Eje Cafetero.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Catálogo</h4>
+ <a href="#catalogo">Salas</a>
+ <a href="#catalogo">Comedores</a>
+ <a href="#catalogo">Colchones</a>
+ <a href="#catalogo">Decoración</a>
+ </div>
+ <div class="footer-col">
+ <h4>Contacto</h4>
+ <a href="https://wa.me/573104994691" target="_blank" rel="noopener">+57 310 499 4691</a>
+ <a href="#zonas">Zonas de entrega</a>
+ <a href="#nosotros">Nosotros</a>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2025 <span class="cr">Colchones El Rey</span> — Pereira, Risaralda</span>
+ <span>Hecho con ♥ en Colombia</span>
+ </div>
 </footer>
 
 <!-- Lightbox modal -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería de fotos">
-  <div class="lb-top">
-    <span class="lb-name" id="lbName"></span>
-    <button class="lb-close" id="lbClose" aria-label="Cerrar galería">&#x2715;</button>
-  </div>
-  <div class="lb-stage">
-    <button class="lb-arrow prev" id="lbPrev" aria-label="Foto anterior">&#8249;</button>
-    <img id="lbImg" src="" alt="">
-    <button class="lb-arrow next" id="lbNext" aria-label="Siguiente foto">&#8250;</button>
-  </div>
-  <div class="lb-strip" id="lbStrip"></div>
-  <p class="lb-info" id="lbInfo"></p>
+ <div class="lb-top">
+ <span class="lb-name" id="lbName"></span>
+ <button class="lb-close" id="lbClose" aria-label="Cerrar galería">&#x2715;</button>
+ </div>
+ <div class="lb-stage">
+ <button class="lb-arrow prev" id="lbPrev" aria-label="Foto anterior">&#8249;</button>
+ <img id="lbImg" src="" alt="">
+ <button class="lb-arrow next" id="lbNext" aria-label="Siguiente foto">&#8250;</button>
+ </div>
+ <div class="lb-strip" id="lbStrip"></div>
+ <p class="lb-info" id="lbInfo"></p>
 </div>
 
 <script>
 const hamBtn = document.getElementById('hamBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 hamBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
+ mobileMenu.classList.toggle('open');
 });
 mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+ a.addEventListener('click', () => mobileMenu.classList.remove('open'));
 });
 
 const filterBtns = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.prod-card');
 filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
-    cards.forEach(c => {
-      c.hidden = f !== 'all' && c.dataset.cat !== f;
-    });
-  });
+ btn.addEventListener('click', () => {
+ filterBtns.forEach(b => b.classList.remove('active'));
+ btn.classList.add('active');
+ const f = btn.dataset.filter;
+ cards.forEach(c => {
+ c.hidden = f !== 'all' && c.dataset.cat !== f;
+ });
+ });
 });
 
 /* ── Lightbox ─────────────────────────────────────────────── */
 (function(){
-  const BASE = 'https://catalogo-el-rey.vercel.app/images/';
-  const COUNTS = {
-    "colchon-granduque":2,"cama-nube":4,"comedor-cuchara":1,
-    "comedor-florencia":4,"comedor-grecia":4,"comedor-italia":3,
-    "comedor-madrid":3,"comedor-milan":5,"comedor-pvc":3,
-    "luna-de-pared":2,"sala-alemana":2,"sala-boston":5,
-    "sala-capriani":4,"sala-luxury":4,"sala-nube":5,
-    "sala-roma":3,"sala-vancouver":5,"sala-venecia":5,
-    "sofacama-carrito":3
-  };
+ const BASE = 'https://catalogo-el-rey.vercel.app/images/';
+ const COUNTS = {
+ "colchon-granduque":2,"cama-nube":4,"comedor-cuchara":1,
+ "comedor-florencia":4,"comedor-grecia":4,"comedor-italia":3,
+ "comedor-madrid":3,"comedor-milan":5,"comedor-pvc":3,
+ "luna-de-pared":2,"sala-alemana":2,"sala-boston":5,
+ "sala-capriani":4,"sala-luxury":4,"sala-nube":5,
+ "sala-roma":3,"sala-vancouver":5,"sala-venecia":5,
+ "sofacama-carrito":3
+ };
 
-  function toSlug(name) {
-    return name.toLowerCase()
-      .normalize('NFD').replace(/[̀-ͯ]/g,'')
-      .replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
-  }
+ function toSlug(name) {
+ return name.toLowerCase()
+ .normalize('NFD').replace(/[̀-ͯ]/g,'')
+ .replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+ }
 
-  let cur = 0, imgs = [];
-  const lb    = document.getElementById('lb');
-  const lbImg = document.getElementById('lbImg');
-  const lbName= document.getElementById('lbName');
-  const lbStrip=document.getElementById('lbStrip');
-  const lbPrev= document.getElementById('lbPrev');
-  const lbNext= document.getElementById('lbNext');
-  const lbInfo= document.getElementById('lbInfo');
+ let cur = 0, imgs = [];
+ const lb = document.getElementById('lb');
+ const lbImg = document.getElementById('lbImg');
+ const lbName= document.getElementById('lbName');
+ const lbStrip=document.getElementById('lbStrip');
+ const lbPrev= document.getElementById('lbPrev');
+ const lbNext= document.getElementById('lbNext');
+ const lbInfo= document.getElementById('lbInfo');
 
-  function showSlide(i) {
-    cur = i;
-    lbImg.src = imgs[i];
-    lbInfo.textContent = (i+1) + ' / ' + imgs.length;
-    lbPrev.disabled = i === 0;
-    lbNext.disabled = i === imgs.length - 1;
-    lbStrip.querySelectorAll('img').forEach((t,j) => t.classList.toggle('on', j===i));
-    lbStrip.querySelectorAll('img')[i]?.scrollIntoView({inline:'nearest',behavior:'smooth'});
-  }
+ function showSlide(i) {
+ cur = i;
+ lbImg.src = imgs[i];
+ lbInfo.textContent = (i+1) + ' / ' + imgs.length;
+ lbPrev.disabled = i === 0;
+ lbNext.disabled = i === imgs.length - 1;
+ lbStrip.querySelectorAll('img').forEach((t,j) => t.classList.toggle('on', j===i));
+ lbStrip.querySelectorAll('img')[i]?.scrollIntoView({inline:'nearest',behavior:'smooth'});
+ }
 
-  function openLb(slug, name) {
-    const n = COUNTS[slug] || 0;
-    if (!n) return;
-    imgs = Array.from({length:n}, (_,i) => BASE+slug+'/'+(i+1)+'.jpg');
-    lbName.textContent = name;
-    lbStrip.innerHTML = '';
-    imgs.forEach((src,i) => {
-      const t = document.createElement('img');
-      t.src = src; t.loading = 'lazy'; t.alt = name+' '+(i+1);
-      t.addEventListener('click', () => showSlide(i));
-      lbStrip.appendChild(t);
-    });
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    showSlide(0);
-    new Image().src = imgs[1] || imgs[0]; // preload 2nd
-  }
+ function openLb(slug, name) {
+ const n = COUNTS[slug] || 0;
+ if (!n) return;
+ imgs = Array.from({length:n}, (_,i) => BASE+slug+'/'+(i+1)+'.jpg');
+ lbName.textContent = name;
+ lbStrip.innerHTML = '';
+ imgs.forEach((src,i) => {
+ const t = document.createElement('img');
+ t.src = src; t.loading = 'lazy'; t.alt = name+' '+(i+1);
+ t.addEventListener('click', () => showSlide(i));
+ lbStrip.appendChild(t);
+ });
+ lb.classList.add('open');
+ document.body.style.overflow = 'hidden';
+ showSlide(0);
+ new Image().src = imgs[1] || imgs[0]; // preload 2nd
+ }
 
-  function closeLb() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-    lbImg.src = '';
-  }
+ function closeLb() {
+ lb.classList.remove('open');
+ document.body.style.overflow = '';
+ lbImg.src = '';
+ }
 
-  document.getElementById('lbClose').addEventListener('click', closeLb);
-  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
-  lbPrev.addEventListener('click', () => { if (cur > 0) showSlide(cur-1); });
-  lbNext.addEventListener('click', () => { if (cur < imgs.length-1) showSlide(cur+1); });
+ document.getElementById('lbClose').addEventListener('click', closeLb);
+ lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+ lbPrev.addEventListener('click', () => { if (cur > 0) showSlide(cur-1); });
+ lbNext.addEventListener('click', () => { if (cur < imgs.length-1) showSlide(cur+1); });
 
-  document.addEventListener('keydown', e => {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowRight' && cur < imgs.length-1) showSlide(cur+1);
-    if (e.key === 'ArrowLeft'  && cur > 0)             showSlide(cur-1);
-  });
+ document.addEventListener('keydown', e => {
+ if (!lb.classList.contains('open')) return;
+ if (e.key === 'Escape') closeLb();
+ if (e.key === 'ArrowRight' && cur < imgs.length-1) showSlide(cur+1);
+ if (e.key === 'ArrowLeft' && cur > 0) showSlide(cur-1);
+ });
 
-  // Swipe support
-  let swipeX = null;
-  lbImg.addEventListener('touchstart', e => { swipeX = e.touches[0].clientX; }, {passive:true});
-  lbImg.addEventListener('touchend',   e => {
-    if (swipeX === null) return;
-    const dx = e.changedTouches[0].clientX - swipeX;
-    if (Math.abs(dx) > 50) {
-      if (dx < 0 && cur < imgs.length-1) showSlide(cur+1);
-      else if (dx > 0 && cur > 0)        showSlide(cur-1);
-    }
-    swipeX = null;
-  });
+ // Swipe support
+ let swipeX = null;
+ lbImg.addEventListener('touchstart', e => { swipeX = e.touches[0].clientX; }, {passive:true});
+ lbImg.addEventListener('touchend', e => {
+ if (swipeX === null) return;
+ const dx = e.changedTouches[0].clientX - swipeX;
+ if (Math.abs(dx) > 50) {
+ if (dx < 0 && cur < imgs.length-1) showSlide(cur+1);
+ else if (dx > 0 && cur > 0) showSlide(cur-1);
+ }
+ swipeX = null;
+ });
 
-  // Wire every product card
-  document.querySelectorAll('.prod-card').forEach(card => {
-    const nameEl = card.querySelector('.prod-name');
-    if (!nameEl) return;
-    const name = nameEl.textContent.trim();
-    const slug = toSlug(name);
-    if (!COUNTS[slug]) return;
-    card.addEventListener('click', e => {
-      if (e.target.closest('.btn-cotizar')) return;
-      openLb(slug, name);
-    });
-  });
+ // Wire every product card
+ document.querySelectorAll('.prod-card').forEach(card => {
+ const nameEl = card.querySelector('.prod-name');
+ if (!nameEl) return;
+ const name = nameEl.textContent.trim();
+ const slug = toSlug(name);
+ if (!COUNTS[slug]) return;
+ card.addEventListener('click', e => {
+ if (e.target.closest('.btn-cotizar')) return;
+ openLb(slug, name);
+ });
+ });
 })();
 </script>
 </body>
