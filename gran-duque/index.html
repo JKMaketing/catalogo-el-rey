@@ -41,13 +41,14 @@ a{color:inherit;text-decoration:none}
 .gold{color:var(--gold-l)}
 :focus-visible{outline:3px solid var(--gold-l);outline-offset:3px;border-radius:6px}
 
-/* Barra superior */
-.bar{position:sticky;top:0;z-index:50;background:rgba(22,16,15,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:800;font-size:1.05rem}
-.brand img{height:34px;width:auto;background:#fff;border-radius:6px;padding:2px 6px}
-.bar-cta{background:var(--cr);color:#fff;font-weight:800;font-size:.85rem;padding:9px 18px;border-radius:99px;transition:.2s}
-.bar-cta:hover{background:var(--cr-l)}
+/* Barra superior: limpia, transparente sobre el hero y sólida al desplazar */
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+.bar.solid{background:rgba(22,16,15,.9);backdrop-filter:blur(10px);border-bottom-color:var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center}
+.brand img{height:36px;width:auto;background:#fff;border-radius:8px;padding:3px 8px}
+.bar-cta{color:var(--gold-l);font-weight:800;font-size:.9rem;letter-spacing:.02em;padding:9px 20px;border:1.5px solid rgba(240,193,75,.55);border-radius:99px;transition:.2s}
+.bar-cta:hover{background:var(--gold-l);color:#2A1A00;border-color:var(--gold-l)}
 
 /* Botones */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:800;font-size:1.05rem;padding:16px 30px;border-radius:99px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;font-family:var(--sans)}
@@ -59,7 +60,7 @@ a{color:inherit;text-decoration:none}
 .btn svg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
 
 /* Hero */
-.hero{position:relative;overflow:hidden;padding:56px 0 72px;background:radial-gradient(1200px 600px at 85% 20%,rgba(193,34,88,.28),transparent 60%),radial-gradient(800px 500px at 0% 100%,rgba(201,148,26,.18),transparent 60%),var(--ink)}
+.hero{position:relative;overflow:hidden;padding:104px 0 72px;background:radial-gradient(1200px 600px at 85% 20%,rgba(193,34,88,.28),transparent 60%),radial-gradient(800px 500px at 0% 100%,rgba(201,148,26,.18),transparent 60%),var(--ink)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .kicker{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l);border:1px solid rgba(240,193,75,.4);padding:7px 14px;border-radius:99px;margin-bottom:22px}
 h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.5rem,6vw,4.6rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:20px}
@@ -180,7 +181,7 @@ footer a{color:var(--gold-l);font-weight:700}
 
 @media (max-width:900px){
   .hero .wrap,.incl,.co-grid{grid-template-columns:1fr}
-  .hero{padding-top:36px}
+  .hero{padding-top:88px}
   .frame{order:-1;width:min(340px,86%)}
   .pain-grid,.steps{grid-template-columns:1fr}
   .benefits-grid{grid-template-columns:1fr 1fr}
@@ -194,6 +195,7 @@ footer a{color:var(--gold-l);font-weight:700}
   .tag{right:0}
 }
 @media (min-width:901px){.sticky{display:none}body{padding-bottom:0}}
+@media (max-width:900px){.bar-cta{display:none}.bar .wrap{justify-content:center}}
 </style>
 </head>
 <body>
@@ -202,10 +204,10 @@ footer a{color:var(--gold-l);font-weight:700}
   <symbol id="wa" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.27-1.38A9.9 9.9 0 1 0 12.04 2Zm0 18.1c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.13.82.84-3.05-.2-.31A8.1 8.1 0 1 1 12.04 20.1Zm4.45-6.07c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.47-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.1 3.64.57.25 1.02.4 1.37.5.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></symbol>
 </svg>
 
-<header class="bar">
+<header class="bar" id="bar">
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Colchones El Rey"><img src="../logo.png" alt="El Rey" width="60" height="34"><span>Colchones El Rey</span></a>
-    <a class="bar-cta" href="#comprar">Comprar ahora</a>
+    <a class="brand" href="../" aria-label="Colchones El Rey"><img src="../logo.png" alt="El Rey" width="60" height="34"></a>
+    <a class="bar-cta" href="#comprar">Comprar</a>
   </div>
 </header>
 
@@ -418,6 +420,7 @@ const PRODUCTO = 'Colchón Gran Duque + Base Cama ($1.100.000)';
 /* ======================================= */
 
 document.documentElement.classList.add('js');
+const bar=document.getElementById('bar');const onS=()=>bar.classList.toggle('solid',scrollY>24);addEventListener('scroll',onS,{passive:true});onS();
 document.getElementById('yr').textContent = new Date().getFullYear();
 const wa = t => 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(t);
 document.getElementById('waHero').href = wa('Hola, quiero información del ' + PRODUCTO);
