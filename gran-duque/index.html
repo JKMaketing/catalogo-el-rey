@@ -500,7 +500,32 @@ footer a{color:var(--red);font-weight:800}
 const PAY_URL = '';
 const WA_NUMBER = '573206777716';
 const PRODUCTO = 'Colchón Gran Duque 1,40 x 1,90 + Base Cama gratis ($1.100.000)';
+/* Píxeles: pega los IDs y se activan solos. Vacío = no se carga nada.
+   META_PIXEL_ID: solo números (Administrador de eventos de Meta).
+   GA4_ID: formato G-XXXXXXXXXX · GADS_ID: formato AW-XXXXXXXXX (opcional). */
+const META_PIXEL_ID = '';
+const GA4_ID = '';
+const GADS_ID = '';
 /* ======================================= */
+
+/* ---- Píxeles y eventos ---- */
+const VALOR = 1100000, MONEDA = 'COP', CONTENT = { content_name: 'Colchón Gran Duque 1,40 x 1,90', content_ids: ['gran-duque-140x190'], content_type: 'product', value: VALOR, currency: MONEDA };
+if (META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID); fbq('track', 'PageView'); fbq('track', 'ViewContent', CONTENT);
+}
+if (GA4_ID || GADS_ID) {
+  const s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + (GA4_ID || GADS_ID); document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date());
+  if (GA4_ID) gtag('config', GA4_ID);
+  if (GADS_ID) gtag('config', GADS_ID);
+  gtag('event', 'view_item', { currency: MONEDA, value: VALOR, items: [{ item_id: 'gran-duque-140x190', item_name: 'Colchón Gran Duque 1,40 x 1,90', price: VALOR, quantity: 1 }] });
+}
+function track(meta, ga, extra) {
+  try { if (window.fbq) fbq('track', meta, Object.assign({}, CONTENT, extra || {})); } catch (e) {}
+  try { if (window.gtag) gtag('event', ga, Object.assign({ currency: MONEDA, value: VALOR }, extra || {})); } catch (e) {}
+}
 
 document.documentElement.classList.add('js');
 document.getElementById('yr').textContent = new Date().getFullYear();
@@ -536,10 +561,15 @@ form.addEventListener('submit', ev => {
   const pay = document.getElementById('payBtn');
   if (PAY_URL) { pay.href = PAY_URL; pay.textContent = 'Pagar $1.100.000 en línea'; }
   else { pay.href = wa(msg + '\nQuiero pagar mi pedido.'); pay.textContent = 'Pagar con un asesor por WhatsApp'; }
+  track('Lead', 'generate_lead');
   form.style.display = 'none';
   const s2 = document.getElementById('step2'); s2.classList.add('on');
   s2.scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
+document.getElementById('payBtn').addEventListener('click', () => track('InitiateCheckout', 'begin_checkout'));
+document.getElementById('waOrder').addEventListener('click', () => track('Contact', 'contact', { method: 'whatsapp' }));
+document.getElementById('waHero').addEventListener('click', () => track('Contact', 'contact', { method: 'whatsapp' }));
+document.querySelectorAll('a[href="#comprar"]').forEach(a => a.addEventListener('click', () => track('AddToCart', 'add_to_cart')));
 form.querySelectorAll('input,select').forEach(i => i.addEventListener('input', () => i.closest('.field').classList.remove('bad')));
 </script>
 </body>
