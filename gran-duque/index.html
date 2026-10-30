@@ -19,10 +19,11 @@
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" type="image/png" href="../logo.png">
 <link rel="canonical" href="https://jkmaketing.github.io/catalogo-el-rey/gran-duque/">
-<link rel="preload" as="image" href="img/gran-duque-1.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="img/gran-duque-1-600.jpg" imagesrcset="img/gran-duque-1-600.jpg 600w, img/gran-duque-1.jpg 900w" imagesizes="(max-width:900px) 86vw, 430px" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;1,600&family=Nunito:wght@400;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;1,600&family=Nunito:wght@400;700;800&display=swap"></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"FurnitureStore","@id":"https://jkmaketing.github.io/catalogo-el-rey/#negocio","name":"Colchones El Rey","alternateName":"Colchones El Rey Pereira","url":"https://jkmaketing.github.io/catalogo-el-rey/","logo":"https://jkmaketing.github.io/catalogo-el-rey/logo-full.png","image":"https://jkmaketing.github.io/catalogo-el-rey/gran-duque/img/gran-duque-1.jpg","telephone":"+573206777716","sameAs":["https://www.instagram.com/colchones_elrey/"],"priceRange":"$$","areaServed":[{"@type":"City","name":"Pereira"},{"@type":"City","name":"Cartago"},{"@type":"AdministrativeArea","name":"Risaralda"}],"slogan":"Años vendiendo colchones",
@@ -51,7 +52,7 @@
   --yellow:#F5B800; --yellow-d:#D99A00; --yellow-bg:#FFF6D6;
   --white:#FFFFFF; --cream:#FFFAF0; --ink:#241416; --text:#3A2A2C; --muted:#756467; --line:#EADCDD;
   --wa:#25D366;
-  --serif:'Playfair Display',Georgia,serif; --sans:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --serif:'Playfair Display','Iowan Old Style','Palatino Linotype',Georgia,serif; --sans:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -102,6 +103,8 @@ h1 em{font-style:italic;color:var(--red)}
 .tag span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#FFE08A}
 
 section{padding:84px 0}
+/* Rendimiento: no pintar lo que está lejos de la pantalla */
+.gallery,.locs-sec,.faq-sec,.final{content-visibility:auto;contain-intrinsic-size:auto 640px}
 .eyebrow{font-weight:800;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
 h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.9rem,4.2vw,2.9rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:16px;color:var(--ink)}
 .sub{color:var(--muted);font-size:1.1rem;max-width:40em}
@@ -209,6 +212,10 @@ footer a{color:var(--red);font-weight:800}
 .sticky .sp small{display:block;color:var(--muted);font-size:.75rem;font-weight:700}
 .sticky .sp b{font-family:var(--serif);font-size:1.35rem;color:var(--red)}
 .sticky .btn{padding:13px 26px;font-size:1rem}
+.sticky .acts{display:flex;gap:10px;align-items:center}
+.sticky .btn-wa-ic{width:48px;height:48px;padding:0;flex-shrink:0}
+.sticky .btn-wa-ic svg{width:24px;height:24px}
+.btn{min-height:48px}
 
 .js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .js .rv.in{opacity:1;transform:none}
@@ -218,7 +225,8 @@ footer a{color:var(--red);font-weight:800}
   .hero .wrap,.incl,.co-grid,.spec-wrap{grid-template-columns:1fr}
   .spec-wrap{gap:30px}
   .hero{padding-top:32px}
-  .frame{order:-1;width:min(340px,86%)}
+  .frame{width:min(340px,86%);margin-top:8px}
+  .hero::before{width:90%}
   .pain-grid,.steps,.locs{grid-template-columns:1fr}
   .benefits-grid{grid-template-columns:1fr 1fr}
   .gal-grid{grid-template-columns:1fr 1fr;gap:12px}
@@ -248,7 +256,7 @@ footer a{color:var(--red);font-weight:800}
 <header class="bar" id="bar">
   <div class="wrap">
     <span class="bar-side">Pereira · Cartago</span>
-    <a class="brand" href="../" aria-label="Colchones El Rey, Espumas y Colchones"><img src="../logo-full.png" alt="Colchones El Rey · Espumas & Colchones" width="96" height="54"></a>
+    <a class="brand" href="../" aria-label="Colchones El Rey, Espumas y Colchones"><img src="img/logo-el-rey-300.png" alt="Colchones El Rey · Espumas & Colchones" width="95" height="54" decoding="async"></a>
     <a class="bar-cta" href="#comprar">Comprar</a>
   </div>
 </header>
@@ -276,7 +284,7 @@ footer a{color:var(--red);font-weight:800}
       </div>
     </div>
     <div class="frame">
-      <img src="img/gran-duque-1.jpg" alt="Colchón Gran Duque 1,40 x 1,90 con base cama tapizada en la sala de exhibición de Colchones El Rey en Pereira" width="900" height="1200" fetchpriority="high">
+      <img src="img/gran-duque-1-600.jpg" srcset="img/gran-duque-1-600.jpg 600w, img/gran-duque-1.jpg 900w" sizes="(max-width:900px) 86vw, 430px" alt="Colchón Gran Duque 1,40 x 1,90 con base cama tapizada en la sala de exhibición de Colchones El Rey en Pereira" width="900" height="1200" fetchpriority="high" decoding="async">
       <div class="tag"><span>Base cama</span><b>¡GRATIS!</b></div>
     </div>
   </div>
@@ -322,11 +330,11 @@ footer a{color:var(--red);font-weight:800}
       <p class="sub">Fotos reales de la exhibición de Colchones El Rey. Ven y pruébalo.</p>
     </div>
     <div class="gal-grid">
-      <figure class="rv"><img src="img/gran-duque-1.jpg" alt="Colchón Gran Duque con base cama en la sala de exhibición de Pereira" loading="lazy" width="900" height="1200"><figcaption>Colchón + base cama</figcaption></figure>
-      <figure class="rv"><img src="img/gran-duque-2.jpg" alt="Colchón Gran Duque doble pillow top sobre base cama negra" loading="lazy" width="900" height="1200"><figcaption>Doble pillow top</figcaption></figure>
-      <figure class="rv"><img src="img/gran-duque-3.jpg" alt="Detalle del bordado El Rey Espumas y Colchones en el colchón Gran Duque" loading="lazy" width="900" height="1200"><figcaption>Bordado El Rey</figcaption></figure>
-      <figure class="rv"><img src="img/gran-duque-4.jpg" alt="Colchón Gran Duque de 40 cm de altura, vista frontal con acabado acolchado" loading="lazy" width="900" height="1200"><figcaption>40 cm de altura</figcaption></figure>
-      <figure class="rv"><img src="img/gran-duque-5.jpg" alt="Etiqueta del colchón con garantía de 5 años y peso recomendado" loading="lazy" width="900" height="1200"><figcaption>Etiqueta: 5 años de garantía</figcaption></figure>
+      <figure class="rv"><img src="img/gran-duque-1-600.jpg" srcset="img/gran-duque-1-600.jpg 600w, img/gran-duque-1.jpg 900w" sizes="(max-width:900px) 50vw, 360px" alt="Colchón Gran Duque con base cama en la sala de exhibición de Pereira" loading="lazy" decoding="async" width="900" height="1200"><figcaption>Colchón + base cama</figcaption></figure>
+      <figure class="rv"><img src="img/gran-duque-2-600.jpg" srcset="img/gran-duque-2-600.jpg 600w, img/gran-duque-2.jpg 900w" sizes="(max-width:900px) 50vw, 360px" alt="Colchón Gran Duque doble pillow top sobre base cama negra" loading="lazy" decoding="async" width="900" height="1200"><figcaption>Doble pillow top</figcaption></figure>
+      <figure class="rv"><img src="img/gran-duque-3-600.jpg" srcset="img/gran-duque-3-600.jpg 600w, img/gran-duque-3.jpg 900w" sizes="(max-width:900px) 50vw, 360px" alt="Detalle del bordado El Rey Espumas y Colchones en el colchón Gran Duque" loading="lazy" decoding="async" width="900" height="1200"><figcaption>Bordado El Rey</figcaption></figure>
+      <figure class="rv"><img src="img/gran-duque-4-600.jpg" srcset="img/gran-duque-4-600.jpg 600w, img/gran-duque-4.jpg 900w" sizes="(max-width:900px) 50vw, 360px" alt="Colchón Gran Duque de 40 cm de altura, vista frontal con acabado acolchado" loading="lazy" decoding="async" width="900" height="1200"><figcaption>40 cm de altura</figcaption></figure>
+      <figure class="rv"><img src="img/gran-duque-5-600.jpg" srcset="img/gran-duque-5-600.jpg 600w, img/gran-duque-5.jpg 900w" sizes="(max-width:900px) 50vw, 360px" alt="Etiqueta del colchón con garantía de 5 años y peso recomendado" loading="lazy" decoding="async" width="900" height="1200"><figcaption>Etiqueta: 5 años de garantía</figcaption></figure>
     </div>
   </div>
 </section>
@@ -426,7 +434,7 @@ footer a{color:var(--red);font-weight:800}
 
       <aside class="card" style="position:sticky;top:84px">
         <div class="sum">
-          <img src="img/gran-duque-2.jpg" alt="Colchón Gran Duque con base cama" width="88" height="88">
+          <img src="img/gran-duque-thumb.jpg" alt="Colchón Gran Duque con base cama" width="88" height="88" loading="lazy" decoding="async">
           <div><b>Colchón Gran Duque 1,40 x 1,90</b><span style="color:var(--muted);font-size:.92rem">Colchones El Rey · Pereira y Cartago</span></div>
         </div>
         <div class="row"><span>Colchón Gran Duque 1,40 x 1,90</span><span>$1.100.000</span></div>
@@ -439,7 +447,7 @@ footer a{color:var(--red);font-weight:800}
 </section>
 
 <!-- DONDE ESTAMOS -->
-<section>
+<section class="locs-sec">
   <div class="wrap">
     <div class="center rv">
       <div class="eyebrow">Visítanos</div>
@@ -454,7 +462,7 @@ footer a{color:var(--red);font-weight:800}
 </section>
 
 <!-- FAQ -->
-<section class="pain" style="padding-top:64px">
+<section class="pain faq-sec" style="padding-top:64px">
   <div class="wrap">
     <div class="center rv"><div class="eyebrow">Resolvemos tus dudas</div><h2>Preguntas frecuentes</h2></div>
     <div class="faq rv">
@@ -483,14 +491,17 @@ footer a{color:var(--red);font-weight:800}
 
 <footer>
   <div class="wrap">
-    <img src="../logo-full.png" alt="Colchones El Rey · Espumas & Colchones" width="150" height="84" loading="lazy">
+    <img src="img/logo-el-rey-300.png" alt="Colchones El Rey · Espumas & Colchones" width="150" height="86" loading="lazy" decoding="async">
     <p>© <span id="yr"></span> Colchones El Rey · Pereira, Risaralda y Cartago, Valle del Cauca.<br><a href="https://www.instagram.com/colchones_elrey/" target="_blank" rel="noopener">@colchones_elrey</a> · <a href="../">Ver catálogo completo</a></p>
   </div>
 </footer>
 
 <div class="sticky">
   <div class="sp"><small>Gran Duque 1,40 x 1,90 + base GRATIS</small><b>$1.100.000</b></div>
-  <a class="btn btn-main" href="#comprar">Comprar</a>
+  <div class="acts">
+    <a class="btn btn-wa btn-wa-ic" id="waSticky" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg></a>
+    <a class="btn btn-main" href="#comprar">Comprar</a>
+  </div>
 </div>
 
 <script>
@@ -510,17 +521,29 @@ const GADS_ID = '';
 
 /* ---- Píxeles y eventos ---- */
 const VALOR = 1100000, MONEDA = 'COP', CONTENT = { content_name: 'Colchón Gran Duque 1,40 x 1,90', content_ids: ['gran-duque-140x190'], content_type: 'product', value: VALOR, currency: MONEDA };
+/* Los píxeles se cargan cuando la página ya terminó de pintar (no compiten con el LCP).
+   Los stubs de fbq/gtag existen desde el inicio, así los eventos tempranos quedan en cola. */
 if (META_PIXEL_ID) {
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];f._fbSrc=v}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', META_PIXEL_ID); fbq('track', 'PageView'); fbq('track', 'ViewContent', CONTENT);
 }
 if (GA4_ID || GADS_ID) {
-  const s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + (GA4_ID || GADS_ID); document.head.appendChild(s);
   window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
   gtag('js', new Date());
   if (GA4_ID) gtag('config', GA4_ID);
   if (GADS_ID) gtag('config', GADS_ID);
   gtag('event', 'view_item', { currency: MONEDA, value: VALOR, items: [{ item_id: 'gran-duque-140x190', item_name: 'Colchón Gran Duque 1,40 x 1,90', price: VALOR, quantity: 1 }] });
+}
+function cargarScript(src) { const s = document.createElement('script'); s.async = true; s.src = src; document.head.appendChild(s); }
+function cargarPixeles() {
+  if (window._pxDone) return; window._pxDone = true;
+  if (window._fbSrc) cargarScript(window._fbSrc);
+  if (GA4_ID || GADS_ID) cargarScript('https://www.googletagmanager.com/gtag/js?id=' + (GA4_ID || GADS_ID));
+}
+if (META_PIXEL_ID || GA4_ID || GADS_ID) {
+  const arranque = () => (window.requestIdleCallback ? requestIdleCallback(cargarPixeles, { timeout: 2500 }) : setTimeout(cargarPixeles, 1500));
+  if (document.readyState === 'complete') arranque(); else addEventListener('load', arranque);
+  ['pointerdown', 'keydown', 'scroll'].forEach(ev => addEventListener(ev, cargarPixeles, { once: true, passive: true }));
 }
 function track(meta, ga, extra) {
   try { if (window.fbq) fbq('track', meta, Object.assign({}, CONTENT, extra || {})); } catch (e) {}
@@ -531,6 +554,7 @@ document.documentElement.classList.add('js');
 document.getElementById('yr').textContent = new Date().getFullYear();
 const wa = t => 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(t);
 document.getElementById('waHero').href = wa('Hola, quiero el ' + PRODUCTO);
+document.getElementById('waSticky').href = wa('Hola, quiero el ' + PRODUCTO);
 
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
@@ -568,7 +592,7 @@ form.addEventListener('submit', ev => {
 });
 document.getElementById('payBtn').addEventListener('click', () => track('InitiateCheckout', 'begin_checkout'));
 document.getElementById('waOrder').addEventListener('click', () => track('Contact', 'contact', { method: 'whatsapp' }));
-document.getElementById('waHero').addEventListener('click', () => track('Contact', 'contact', { method: 'whatsapp' }));
+['waHero', 'waSticky'].forEach(id => document.getElementById(id).addEventListener('click', () => track('Contact', 'contact', { method: 'whatsapp' })));
 document.querySelectorAll('a[href="#comprar"]').forEach(a => a.addEventListener('click', () => track('AddToCart', 'add_to_cart')));
 form.querySelectorAll('input,select').forEach(i => i.addEventListener('input', () => i.closest('.field').classList.remove('bad')));
 </script>
