@@ -1,0 +1,8 @@
+Fuentes incluidas en esta carpeta (subconjunto latino, formato WOFF2, descargadas de Google Fonts):
+
+- Playfair Display (800 y 600 itálica) — diseño de Claus Eggers Sørensen.
+- Nunito (variable 400–800) — diseño de Vernon Adams, Cyreal y Jacques Le Bailly.
+
+Ambas se distribuyen bajo la SIL Open Font License 1.1, que permite usarlas, incrustarlas y
+redistribuirlas, incluso comercialmente. Texto completo de la licencia: https://openfontlicense.org
+Fichas oficiales: https://fonts.google.com/specimen/Playfair+Display · https://fonts.google.com/specimen/Nunito
