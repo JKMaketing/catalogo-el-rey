@@ -113,7 +113,7 @@ h1 .s3{display:block;font-style:italic;font-weight:600;font-size:clamp(1.25rem,5
 .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 .proof{margin-top:20px;font-weight:700;font-size:.88rem;color:var(--muted)}
 @keyframes rise{from{opacity:0}to{opacity:1}}
-@keyframes pop{from{opacity:0;transform:rotate(6deg) scale(.4)}to{opacity:1;transform:rotate(6deg) scale(1)}}
+@keyframes pop{from{opacity:0;transform:translateZ(50px) rotate(6deg) scale(.4)}to{opacity:1;transform:translateZ(50px) rotate(6deg) scale(1)}}
 
 /* Cinta amarilla */
 .marq-wrap{overflow:hidden;padding:14px 0}
@@ -277,6 +277,58 @@ footer a{color:var(--red);font-weight:800}
 @media (min-width:600px) and (max-width:900px){.hero-photo{width:min(560px,100%);margin:0 auto}.hero-copy{max-width:600px;margin-inline:auto;width:100%}.why-img{width:min(380px,70%)}.reel figure{flex-basis:230px}}
 @media (max-width:900px){.bar .wrap{grid-template-columns:1fr;justify-items:center}.bar-side,.bar-cta{display:none}.cta-row .btn{width:100%}}
 /* Asistente de venta: lanzador (el panel y su estilo vienen en bot.js) */
+/* ============ Profundidad y movimiento (solo transform/opacity; se apaga con prefers-reduced-motion) ============ */
+.prog{position:fixed;left:0;top:0;right:0;height:3px;z-index:90;background:linear-gradient(90deg,var(--red),var(--yellow));transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
+.bar{transition:box-shadow .3s}.bar.lift{box-shadow:0 8px 26px rgba(60,20,30,.1)}
+.hero-photo{transform-style:preserve-3d;will-change:transform}
+.orb{position:absolute;z-index:2;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 32% 28%,#FFF1B8,var(--yellow) 55%,var(--yellow-d));box-shadow:0 14px 26px rgba(217,154,0,.38),inset -3px -4px 8px rgba(143,90,0,.25)}
+.orb.o1{width:30px;height:30px;right:34%;top:9%}.orb.o2{width:16px;height:16px;right:10%;top:16%}.orb.o3{width:46px;height:46px;right:4%;top:62%;opacity:.9}
+.orb.o3{background:radial-gradient(circle at 32% 28%,#E8667D,var(--red) 55%,var(--red-d));box-shadow:0 16px 28px rgba(143,21,48,.35),inset -3px -4px 8px rgba(80,5,20,.3)}
+.loaded .orb{animation:orbf 5s ease-in-out infinite alternate}.loaded .orb.o2{animation-duration:3.6s}.loaded .orb.o3{animation-duration:6.4s}
+@keyframes orbf{from{transform:translateY(0) scale(1)}to{transform:translateY(-16px) scale(1.06)}}
+@keyframes bob{from{translate:0 0}to{translate:0 -9px}}
+.loaded .tag{animation:pop .7s .5s cubic-bezier(.3,1.6,.5,1) both,bob 3.4s 1.4s ease-in-out infinite alternate}
+.loaded .card .badge{animation:bob 4.2s ease-in-out infinite alternate}
+/* Hojas apiladas: cada sección se monta sobre la anterior */
+.buy,.final{position:relative;z-index:2;margin-top:-44px;border-radius:44px 44px 0 0}
+.gallery,.faq-sec{padding-bottom:140px}
+.final .wrap{position:relative}
+.final::before{content:"";position:absolute;left:-12%;top:-40%;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(245,184,0,.26),transparent 66%);pointer-events:none}
+.final::after{content:"";position:absolute;right:-14%;bottom:-50%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(181,35,63,.5),transparent 66%);pointer-events:none}
+.loaded .final::before{animation:drift 12s ease-in-out infinite alternate}.loaded .final::after{animation:drift 16s 1s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate3d(8%,10%,0) scale(1.12)}}
+/* Botones con vida */
+.btn:active{transform:scale(.97)}
+.btn svg{transition:transform .25s}.btn-main:hover svg{transform:translateX(5px)}
+.btn-main,.btn-yellow{position:relative;overflow:hidden}
+.btn-main::after,.btn-yellow::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);transform:translateX(0) skewX(-18deg);pointer-events:none}
+.loaded .btn-main::after,.loaded .btn-yellow::after{animation:shine 5.5s 2s ease-in-out infinite}
+@keyframes shine{0%,62%{transform:translateX(0) skewX(-18deg)}100%{transform:translateX(480%) skewX(-18deg)}}
+/* Entradas escalonadas */
+.js .rv .pts li,.js .rv .ticks li,.js .rv .mini li{opacity:0;transform:translateX(-16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in .pts li,.js .rv.in .ticks li,.js .rv.in .mini li{opacity:1;transform:none}
+.js .rv.in li:nth-child(1){transition-delay:.12s}.js .rv.in li:nth-child(2){transition-delay:.22s}.js .rv.in li:nth-child(3){transition-delay:.32s}.js .rv.in li:nth-child(4){transition-delay:.42s}
+.js .reel.rv figure{opacity:0;transform:translateY(34px) scale(.92);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.js .reel.rv.in figure{opacity:1;transform:none}
+.js .reel.rv.in figure:nth-child(2){transition-delay:.1s}.js .reel.rv.in figure:nth-child(3){transition-delay:.2s}.js .reel.rv.in figure:nth-child(4){transition-delay:.3s}.js .reel.rv.in figure:nth-child(5){transition-delay:.4s}
+.reel img{transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.reel figcaption{transition:transform .4s}
+@media (hover:hover){
+  .reel figure:hover img{transform:translateY(-12px) scale(1.04) rotate(-1.2deg);box-shadow:0 34px 60px rgba(60,20,30,.28)}
+  .reel figure:hover figcaption{transform:translateY(-8px)}
+  .why-img:hover img{transform:scale(1.03) rotate(-1deg)}
+  .loc{transition:transform .3s,border-color .3s}.loc:hover{transform:translateX(6px);border-color:var(--yellow)}
+}
+.why-img img{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.field input:focus,.field select:focus{box-shadow:0 0 0 4px rgba(181,35,63,.12)}
+.card{transition:box-shadow .4s}.card:focus-within{box-shadow:0 38px 80px rgba(60,10,20,.45)}
+.card .tot b.bump{display:inline-block;animation:bump .45s ease}
+@keyframes bump{40%{transform:scale(1.22);color:var(--yellow-d)}}
+details[open] p{animation:fall .35s ease}
+@keyframes fall{from{opacity:0;transform:translateY(-6px)}}
+@media (min-width:901px){.hero-photo::before{transform:translateZ(-50px)}}
+@media (max-width:900px){.orb.o3{display:none}}
+@media (prefers-reduced-motion:reduce){.js .rv .pts li,.js .rv .ticks li,.js .rv .mini li,.js .reel.rv figure{opacity:1;transform:none}.prog{display:none}}
 .bot-btn{position:fixed;right:14px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:99px;padding:8px 16px 8px 8px;font:800 .9rem var(--sans);box-shadow:0 12px 30px rgba(36,20,22,.35);cursor:pointer}
 .bot-btn .av{position:relative;width:34px;height:34px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-size:1rem}
 .bot-btn .av::after{content:"";position:absolute;right:-1px;top:-1px;width:10px;height:10px;border-radius:50%;background:var(--wa);border:2px solid var(--ink)}
@@ -293,9 +345,10 @@ footer a{color:var(--red);font-weight:800}
   <symbol id="ck" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
 </svg>
 
+<div class="prog" id="prog" aria-hidden="true"></div>
 <header class="bar" id="bar">
   <div class="wrap">
-    <span class="bar-side">Pereira · Cartago</span>
+    <span class="bar-side">De Pereira a todo el Eje Cafetero</span>
     <a class="brand" href="../" aria-label="Colchones El Rey, Espumas y Colchones"><img src="img/logo-el-rey-300.png" alt="Colchones El Rey · Espumas & Colchones" width="95" height="54" decoding="async"></a>
     <a class="bar-cta" href="#comprar">Comprar</a>
   </div>
@@ -304,14 +357,15 @@ footer a{color:var(--red);font-weight:800}
 <main>
 <!-- HERO -->
 <section class="hero">
-  <div class="ghost" aria-hidden="true">Duque</div>
+  <div class="ghost" aria-hidden="true" data-sy="-.16">Duque</div>
+  <i class="orb o1" aria-hidden="true" data-sy=".12"></i><i class="orb o2" aria-hidden="true" data-sy="-.1"></i><i class="orb o3" aria-hidden="true" data-sy=".2"></i>
   <div class="wrap hero-in">
-    <div class="hero-photo">
+    <div class="hero-photo" data-sy=".05">
       <picture><source media="(max-width:900px)" srcset="img/hero-m-480.jpg 480w, img/hero-m-720.jpg 720w" sizes="100vw" width="720" height="605"><img src="img/gran-duque-1-600.jpg" srcset="img/gran-duque-1-600.jpg 600w, img/gran-duque-1.jpg 900w" sizes="500px" alt="Colchón Gran Duque 1,40 x 1,90 con base cama tapizada en la sala de exhibición de Colchones El Rey en Pereira" width="900" height="1200" fetchpriority="high" decoding="async"></picture>
       <div class="tag"><span>Base cama</span><b>¡GRATIS!</b></div>
     </div>
     <div class="hero-copy">
-      <h1><span class="s1">¡Ofertón! Colchón</span><span class="big">Gran</span><span class="big r">Duque</span><span class="s3">1,40 x 1,90: duerme como un rey.</span></h1>
+      <h1><span class="s1">¡El colchón favorito de los pereiranos!</span><span class="big">Gran</span><span class="big r">Duque</span><span class="s3">1,40 x 1,90: duerme como un rey.</span></h1>
       <p class="lead">Doble pillow top de <strong>40 cm</strong> y sensación de firmeza para levantarte sin dolor de espalda. ¡Y la <strong>base cama te sale GRATIS</strong>! Así como lo lees.</p>
       <div class="price-row">
         <div class="price">$1.100.000<small>COP</small></div>
@@ -338,7 +392,7 @@ footer a{color:var(--red);font-weight:800}
   <div class="wrap why-in">
     <div class="why-img rv">
       <img src="img/gran-duque-2-600.jpg" srcset="img/gran-duque-2-600.jpg 600w, img/gran-duque-2.jpg 900w" sizes="(max-width:900px) 60vw, 460px" alt="Colchón Gran Duque doble pillow top de 40 cm sobre base cama negra" width="900" height="1200" loading="lazy" decoding="async">
-      <div class="n40" aria-hidden="true"><b>40</b><span>cm</span></div>
+      <div class="n40" aria-hidden="true" data-par="-.12"><b>40</b><span>cm</span></div>
     </div>
     <div class="rv">
       <div class="eyebrow">Spoiler: no es casualidad</div>
@@ -362,7 +416,7 @@ footer a{color:var(--red);font-weight:800}
       <h2>Así se ve en <em>nuestro almacén.</em></h2>
       <p class="sub">Fotos reales de la exhibición de Colchones El Rey. Ven y pruébalo.</p>
     </div>
-    <div class="reel" tabindex="0" aria-label="Fotos del Colchón Gran Duque">
+    <div class="reel rv" tabindex="0" aria-label="Fotos del Colchón Gran Duque">
       <figure><img src="img/gran-duque-1-600.jpg" srcset="img/gran-duque-1-600.jpg 600w, img/gran-duque-1.jpg 900w" sizes="(max-width:900px) 64vw, 260px" alt="Colchón Gran Duque con base cama en la sala de exhibición de Pereira" loading="lazy" decoding="async" width="900" height="1200"><figcaption>Colchón + base cama</figcaption></figure>
       <figure><img src="img/gran-duque-2-600.jpg" srcset="img/gran-duque-2-600.jpg 600w, img/gran-duque-2.jpg 900w" sizes="(max-width:900px) 64vw, 260px" alt="Colchón Gran Duque doble pillow top sobre base cama negra" loading="lazy" decoding="async" width="900" height="1200"><figcaption>Doble pillow top</figcaption></figure>
       <figure><img src="img/gran-duque-3-600.jpg" srcset="img/gran-duque-3-600.jpg 600w, img/gran-duque-3.jpg 900w" sizes="(max-width:900px) 64vw, 260px" alt="Detalle del bordado El Rey Espumas y Colchones en el colchón Gran Duque" loading="lazy" decoding="async" width="900" height="1200"><figcaption>Bordado El Rey</figcaption></figure>
@@ -589,6 +643,7 @@ function envio() {
 function pintarEnvio() {
   const e = envio(), tv = document.getElementById('totVal'), tl = document.getElementById('totLabel');
   shipInfo.classList.remove('free');
+  tv.classList.remove('bump'); void tv.offsetWidth; tv.classList.add('bump');
   if (!e) { shipInfo.textContent = 'Elige tu municipio para ver el costo del envío.'; tv.textContent = fmt(VALOR); tl.textContent = 'Gran Duque + base cama GRATIS'; return; }
   if (e.tipo === '0') { shipInfo.classList.add('free'); shipInfo.textContent = '🚚 ¡Envío GRATIS a ' + e.mun + '!'; tv.textContent = fmt(VALOR); tl.textContent = 'Total · envío GRATIS'; }
   else if (e.tipo === '40000') { shipInfo.textContent = '🚚 Envío a ' + e.mun + ': +' + fmt(ENVIO) + '. Total: ' + fmt(VALOR + ENVIO); tv.textContent = fmt(VALOR + ENVIO); tl.textContent = 'Total · incluye envío'; }
@@ -649,6 +704,56 @@ function cargarBot(abrirYa) {
 [document.getElementById('botBtn'), ...document.querySelectorAll('[data-bot-open]')].forEach(b => b.addEventListener('click', () => cargarBot(true), { once: true }));
 const marcarScroll = () => document.body.classList.toggle('scrolled', scrollY > 520);
 addEventListener('scroll', marcarScroll, { passive: true }); marcarScroll();
+/* ============ Profundidad: progreso, paralaje, inclinación 3D y contador ============ */
+(function () {
+  const prog = document.getElementById('prog'), bar = document.getElementById('bar');
+  const calmo = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const hero = document.querySelector('.hero'), photo = hero.querySelector('.hero-photo'), ghost = hero.querySelector('.ghost');
+  const sy = [...document.querySelectorAll('[data-sy]')], par = [...document.querySelectorAll('[data-par]')];
+  let heroVis = true, parVis = new Set(), tick = false;
+  function frame() {
+    tick = false;
+    const h = document.documentElement.scrollHeight - innerHeight, y = scrollY;
+    prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(y / h, 1) : 0).toFixed(4) + ')';
+    bar.classList.toggle('lift', y > 8);
+    if (calmo) return;
+    if (heroVis) sy.forEach(el => { el.style.translate = '0 ' + (Math.min(y, 900) * el.dataset.sy).toFixed(1) + 'px'; });
+    const mid = innerHeight / 2, reads = [];
+    parVis.forEach(el => { const r = el.getBoundingClientRect(); reads.push([el, r.top + r.height / 2 - mid]); });
+    reads.forEach(([el, d]) => { el.style.translate = '0 ' + (-d * el.dataset.par).toFixed(1) + 'px'; });
+  }
+  const pedir = () => { if (!tick) { tick = true; requestAnimationFrame(frame); } };
+  addEventListener('scroll', pedir, { passive: true }); addEventListener('resize', pedir); frame();
+  if (calmo || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(es => { heroVis = es[0].isIntersecting; pedir(); }, { threshold: 0 }).observe(hero);
+  const iop = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? parVis.add(e.target) : parVis.delete(e.target)); pedir(); }, { rootMargin: '10% 0px' });
+  par.forEach(el => iop.observe(el));
+  /* Inclinación 3D de la foto del hero con el puntero (solo ratón/trackpad) */
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches && innerWidth > 900) {
+    let nx = 0, ny = 0, cx = 0, cy = 0, run = false;
+    const anim = () => {
+      cx += (nx - cx) * .09; cy += (ny - cy) * .09;
+      photo.style.transform = 'perspective(1100px) rotateY(' + (cx * 7).toFixed(2) + 'deg) rotateX(' + (-cy * 5).toFixed(2) + 'deg)';
+      ghost.style.transform = 'translate3d(' + (-cx * 34).toFixed(1) + 'px,' + (-cy * 20).toFixed(1) + 'px,0)';
+      if (Math.abs(nx - cx) + Math.abs(ny - cy) > .002) requestAnimationFrame(anim); else run = false;
+    };
+    hero.addEventListener('pointermove', ev => {
+      const r = hero.getBoundingClientRect();
+      nx = (ev.clientX - r.left) / r.width * 2 - 1; ny = (ev.clientY - r.top) / r.height * 2 - 1;
+      if (!run) { run = true; requestAnimationFrame(anim); }
+    }, { passive: true });
+    hero.addEventListener('pointerleave', () => { nx = ny = 0; if (!run) { run = true; requestAnimationFrame(anim); } });
+  }
+  /* Contador 0 → 40 cm cuando la foto aparece */
+  const n40 = document.querySelector('.n40 b');
+  if (n40) {
+    n40.textContent = '0';
+    new IntersectionObserver((es, o) => { if (!es[0].isIntersecting) return; o.disconnect();
+      const t0 = performance.now(), d = 1100;
+      (function s(t) { const p = Math.min((t - t0) / d, 1); n40.textContent = Math.round(40 * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(s); })(t0);
+    }, { threshold: .4 }).observe(n40);
+  }
+})();
 addEventListener('load', () => IS_DEMO ? cargarBot(false) : (window.requestIdleCallback ? requestIdleCallback(() => cargarBot(false), { timeout: 3000 }) : setTimeout(() => cargarBot(false), 1500)));
 </script>
 </body>
