@@ -11,6 +11,8 @@
 <link rel="icon" type="image/png" href="../gran-duque/img/favicon-64.png">
 <link rel="preload" href="../gran-duque/fonts/playfair-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../gran-duque/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/avif" media="(max-width:900px)" imagesrcset="img/hm-480.avif 480w, img/hm-720.avif 720w, img/hm-900.avif 900w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" media="(min-width:901px)" imagesrcset="img/p1-480.avif 480w, img/p1-720.avif 720w, img/p1-900.avif 900w" imagesizes="500px" fetchpriority="high">
 <style>
 @font-face{font-family:"Playfair Display";font-style:normal;font-weight:800;font-display:swap;src:url(../gran-duque/fonts/playfair-800-latin.woff2) format("woff2")}
 @font-face{font-family:"Playfair Display";font-style:italic;font-weight:600;font-display:swap;src:url(../gran-duque/fonts/playfair-600i-latin.woff2) format("woff2")}
@@ -45,9 +47,10 @@ h2{font-size:clamp(1.8rem,5vw,2.6rem);margin-bottom:10px}
 .fline{margin-top:18px;font-size:.92rem;font-weight:700;color:var(--muted)}
 .feats{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0}
 .feats b{display:block;font-family:var(--serif);font-size:1.7rem;color:var(--ink);line-height:1.1}.feats span{color:var(--muted);font-size:.95rem}
-.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.shots img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 78%;border-radius:20px}
-.shots img:nth-child(n+3){display:none}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.shots picture{display:block}
+.shots img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 78%;border-radius:20px}
+.shots picture:nth-child(n+3){display:none}
 .buy{background:var(--soft)}
 .buy-in{display:grid;gap:34px;align-items:start}
 .card{background:#fff;border-radius:26px;padding:30px 24px;box-shadow:0 24px 60px rgba(60,20,30,.1);border:1px solid var(--line)}
@@ -88,10 +91,10 @@ footer img{height:64px;width:auto;margin:0 auto 14px}footer p+p{margin-top:6px}f
  .hero{padding:30px 0 80px}.hero-in{grid-template-columns:1fr 1fr;gap:70px}
  .hero-photo{order:2}.hero-photo img{aspect-ratio:4/5;object-position:50% 50%}
  .feats{grid-template-columns:repeat(4,1fr)}
- .shots{gap:22px}.shots img:nth-child(n+3){display:block}
+ .shots{gap:22px}
  .buy-in{grid-template-columns:.9fr 1.1fr;gap:80px}.card{padding:38px 36px}.two{grid-template-columns:1fr 1fr;gap:16px}
 }
-@media (min-width:600px) and (max-width:900px){.shots img:nth-child(n+3){display:block}}
+@media (min-width:600px){.shots{grid-template-columns:repeat(3,1fr)}.shots picture:nth-child(n+3){display:block}}
 </style>
 </head>
 <body>
@@ -102,7 +105,13 @@ footer img{height:64px;width:auto;margin:0 auto 14px}footer p+p{margin-top:6px}f
 <main>
 <section class="hero">
   <div class="wrap hero-in">
-    <div class="hero-photo"><picture><source media="(max-width:900px)" srcset="../gran-duque/img/hero-m-480.jpg 480w, ../gran-duque/img/hero-m-720.jpg 720w" sizes="100vw"><img src="../gran-duque/img/gran-duque-1-600.jpg" srcset="../gran-duque/img/gran-duque-1-600.jpg 600w, ../gran-duque/img/gran-duque-1.jpg 900w" sizes="500px" alt="Colchón Gran Duque 1,40 x 1,90 con base cama en el almacén de Colchones El Rey en Pereira" width="900" height="1200" fetchpriority="high" decoding="async"></picture></div>
+    <div class="hero-photo"><picture>
+        <source media="(max-width:900px)" type="image/avif" srcset="img/hm-480.avif 480w, img/hm-720.avif 720w, img/hm-900.avif 900w" sizes="100vw">
+        <source media="(max-width:900px)" type="image/webp" srcset="img/hm-480.webp 480w, img/hm-720.webp 720w, img/hm-900.webp 900w" sizes="100vw">
+        <source media="(max-width:900px)" srcset="img/hm-480.jpg 480w, img/hm-720.jpg 720w, img/hm-900.jpg 900w" sizes="100vw">
+        <source type="image/avif" srcset="img/p1-480.avif 480w, img/p1-720.avif 720w, img/p1-900.avif 900w" sizes="500px">
+        <source type="image/webp" srcset="img/p1-480.webp 480w, img/p1-720.webp 720w, img/p1-900.webp 900w" sizes="500px">
+        <img src="../gran-duque/img/gran-duque-1.jpg" alt="Colchón Gran Duque 1,40 x 1,90 con base cama en el almacén de Colchones El Rey en Pereira" width="900" height="1200" fetchpriority="high" decoding="async"></picture></div>
     <div>
       <div class="eyebrow">Colchón Gran Duque · 1,40 x 1,90</div>
       <h1>Duerme <em>como un rey.</em></h1>
@@ -130,9 +139,9 @@ footer img{height:64px;width:auto;margin:0 auto 14px}footer p+p{margin-top:6px}f
 <section>
   <div class="wrap">
     <div class="shots rv">
-      <img src="../gran-duque/img/gran-duque-2-600.jpg" alt="Colchón Gran Duque doble pillow top sobre base cama negra" width="900" height="1200" loading="lazy" decoding="async">
-      <img src="../gran-duque/img/gran-duque-4-600.jpg" alt="Colchón Gran Duque de 40 cm de altura, vista frontal" width="900" height="1200" loading="lazy" decoding="async">
-      <img src="../gran-duque/img/gran-duque-3-600.jpg" alt="Detalle del bordado El Rey en el colchón Gran Duque" width="900" height="1200" loading="lazy" decoding="async">
+      <picture><source type="image/avif" srcset="img/p2-480.avif 480w, img/p2-720.avif 720w, img/p2-900.avif 900w" sizes="(max-width:599px) 50vw, (max-width:900px) 33vw, 340px"><source type="image/webp" srcset="img/p2-480.webp 480w, img/p2-720.webp 720w, img/p2-900.webp 900w" sizes="(max-width:599px) 50vw, (max-width:900px) 33vw, 340px"><img src="../gran-duque/img/gran-duque-2-600.jpg" alt="Colchón Gran Duque doble pillow top sobre base cama negra" width="900" height="1200" loading="lazy" decoding="async"></picture>
+      <picture><source type="image/avif" srcset="img/p4-480.avif 480w, img/p4-720.avif 720w, img/p4-900.avif 900w" sizes="(max-width:599px) 50vw, (max-width:900px) 33vw, 340px"><source type="image/webp" srcset="img/p4-480.webp 480w, img/p4-720.webp 720w, img/p4-900.webp 900w" sizes="(max-width:599px) 50vw, (max-width:900px) 33vw, 340px"><img src="../gran-duque/img/gran-duque-4-600.jpg" alt="Colchón Gran Duque de 40 cm de altura, vista frontal" width="900" height="1200" loading="lazy" decoding="async"></picture>
+      <picture><source type="image/avif" srcset="img/p3-480.avif 480w, img/p3-720.avif 720w, img/p3-900.avif 900w" sizes="(max-width:599px) 50vw, (max-width:900px) 33vw, 340px"><source type="image/webp" srcset="img/p3-480.webp 480w, img/p3-720.webp 720w, img/p3-900.webp 900w" sizes="(max-width:599px) 50vw, (max-width:900px) 33vw, 340px"><img src="../gran-duque/img/gran-duque-3-600.jpg" alt="Detalle del bordado El Rey en el colchón Gran Duque" width="900" height="1200" loading="lazy" decoding="async"></picture>
     </div>
   </div>
 </section>
