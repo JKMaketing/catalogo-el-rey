@@ -107,8 +107,8 @@ function apply(i, animate) {
 }
 function adv() { if (step >= sc.steps.length - 1) return false; step++; apply(step, true); return true }
 function jump(i) { reset(); for (let k = 0; k <= i; k++) { step = k; apply(k, false) } }
-function play() { $('#play').textContent = '❚❚ Pausar'; timer = setInterval(() => { if (!adv()) stop() }, 2600); adv() }
-function stop() { clearInterval(timer); timer = null; const p = $('#play'); if (p) p.textContent = '▶ Reproducir' }
+function play() { $('#play').innerHTML = '❚❚ Pausar'; timer = setInterval(() => { if (!adv()) stop() }, 2600); adv() }
+function stop() { clearInterval(timer); timer = null; const p = $('#play'); if (p) p.innerHTML = '▶ Reproducir' }
 function board(st) {
   const k = $('#kanban'); if (!k) return;
   k.innerHTML = STAGES.map((n, i) => { const ls = BOARD.filter(b => b[3] === i); const me = st === i; return '<div class="kcol"><h5><span>' + n + '</span><span>' + (ls.length + (me ? 1 : 0)) + '</span></h5>' + (me ? '<div class="klead ' + sc.kind + ' moving" style="outline:2px solid var(--red)"><b>' + H.esc(sc.name) + '</b>' + H.esc(sc.lead.Producto || '') + '</div>' : '') + ls.map(l => '<div class="klead ' + l[1] + '"><b>' + l[0] + '</b>' + l[2] + ' · ' + (l[1] === 'ctwa' ? 'WhatsApp' : 'Web') + '</div>').join('') + '</div>' }).join('');

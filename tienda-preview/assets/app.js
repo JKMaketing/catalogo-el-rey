@@ -11,11 +11,69 @@ const A = ROOT === '/' ? '/' : BASE;
 const asset = p => A + 'assets/' + p;
 const img = (id, s) => asset('img/' + id + (s ? '-' + s : '') + '.webp');
 const url = r => A + r;
+// Los enlaces fijos del menú y el pie vienen relativos ({{ROOT}}); se vuelven absolutos para que sigan funcionando al navegar dentro de la SPA.
+if (ROOT !== '/') document.querySelectorAll('a[href], img[src]').forEach(a => { const k = a.tagName === 'IMG' ? 'src' : 'href', h = a.getAttribute(k); if (h && h.startsWith(ROOT)) a.setAttribute(k, BASE + h.slice(ROOT.length)) });
 const byId = id => P.find(p => p.id === id);
 const brandName = b => b === 'colchones' ? 'Colchones El Rey' : 'Muebles El Rey';
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const store = { get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d } catch { return d } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)) } catch {} } };
 const COMBO_OFF = 0.05;
+
+/* ───── Íconos SVG uniformes (reemplazan cualquier emoji del sitio, del bot y del CRM) ───── */
+const ICN = {
+  crown: '<path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5L3 8z"/><path d="M5 19h14"/>',
+  truck: '<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/>',
+  lock: '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  card: '<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/>',
+  star: '<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z"/>',
+  bed: '<path d="M3 19V7M21 19v-5a3 3 0 0 0-3-3h-8v5M3 14h18M3 17h18"/><circle cx="6.5" cy="11" r="1.5"/>',
+  sofa: '<path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 12a2 2 0 0 1 4 0v2h10v-2a2 2 0 1 1 4 0v5H3v-5zM6 17v2M18 17v2"/>',
+  dining: '<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 2-2 6 0 8v10"/>',
+  home: '<path d="M3 11 12 4l9 7M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2A5.5 5.5 0 0 1 21.5 20"/>',
+  family: '<circle cx="7" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><circle cx="12" cy="13" r="2.2"/><path d="M2 20a5 5 0 0 1 9-3M22 20a5 5 0 0 0-9-3M9 21a3 3 0 0 1 6 0"/>',
+  sparkle: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/>',
+  heart: '<path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/>',
+  wallet: '<path d="M3 7h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7zM3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/>',
+  play: '<path d="M7 4.5v15l12-7.5-12-7.5z"/>',
+  pause: '<path d="M8 5v14M16 5v14"/>',
+  factory: '<path d="M3 20V10l5 3v-3l5 3V7l5 3v10H3zM7 17h2M12 17h2M17 17h1"/>',
+  shield: '<path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3z"/><path d="m9 12 2 2 4-4"/>',
+  flame: '<path d="M12 2.5c.8 3.2 5 5.3 5 10a5 5 0 0 1-10 0c0-2.3 1.1-3.8 2.4-5 .1 1.6.8 2.7 2 3.2-.6-2.9-.2-5.8.6-8.2Z"/>',
+  gift: '<path d="M4 11h16v9H4zM3 7h18v4H3zM12 7v13M12 7c-1.5-3-5-3.2-5-1s3.5 1 5 1zm0 0c1.5-3 5-3.2 5-1s-3.5 1-5 1z"/>',
+  refresh: '<path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/>',
+  undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+  store: '<path d="M4 9h16l-1.5-4h-13L4 9zM5 9v11h14V9M9.5 20v-5h5v5"/>',
+  paw: '<circle cx="6" cy="10" r="1.8"/><circle cx="10" cy="6.5" r="1.8"/><circle cx="14" cy="6.5" r="1.8"/><circle cx="18" cy="10" r="1.8"/><path d="M12 12c-3 0-5.5 3.2-5.5 5.5 0 1.6 1.3 2.5 2.8 2.5 1.2 0 1.8-.6 2.7-.6s1.5.6 2.7.6c1.5 0 2.8-.9 2.8-2.5 0-2.3-2.5-5.5-5.5-5.5z"/>',
+  check: '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',
+  bag: '<path d="M5 7h14l-1.2 12.1a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9L5 7z"/><path d="M9 7a3 3 0 0 1 6 0"/>',
+  pin: '<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+  bank: '<path d="M3 10 12 4l9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/>',
+  phone: '<rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/>',
+  box: '<path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/>',
+  alert: '<circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5h.01"/>',
+  chart: '<path d="M4 20V4M4 20h16"/><path d="m7 15 4-4 3 3 5-6"/>',
+  chat: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',
+  receipt: '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/>',
+  palette: '<path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.6-1 1.1-2-.6-1.2.2-2.5 1.6-2.5H17a4 4 0 0 0 4-4C21 7.4 17 3 12 3z"/><path d="M7.5 11h.01M10 7.5h.01M14.5 7.5h.01"/>',
+  ruler: '<path d="M3 17 17 3l4 4L7 21l-4-4z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  x: '<circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/>',
+  send: '<path d="M4 12 20 4l-4 16-4-7-8-1z"/>',
+  wa: '<path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.1-4.2A8.5 8.5 0 1 1 20.5 11.6z"/><path d="M9.2 8.3c.2 2.9 2.6 5.4 5.6 5.9l1.2-1.4 1.6.8-.4 1.7c-4.1.1-7.9-3.7-8-7.6l1.6-.6.9 1.6-.9 1"/>',
+  briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>',
+  hotel: '<path d="M4 21V4h11v17M15 9h5v12M2 21h20M8 8h3M8 12h3M8 16h3"/>'
+};
+const icon = (n, c) => '<svg class="ei' + (c ? ' ' + c : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICN[n] || ICN.sparkle) + '</svg>';
+const EMO = { '👑': 'crown', '🚚': 'truck', '🔒': 'lock', '💳': 'card', '⭐': 'star', '🛏️': 'bed', '🛏': 'bed', '🛋️': 'sofa', '🛋': 'sofa', '🍽️': 'dining', '🍽': 'dining', '🏠': 'home', '🏡': 'home', '🙋': 'user', '👫': 'users', '💑': 'users', '👨‍👩‍👧': 'family', '👧': 'family', '🎉': 'sparkle', '✨': 'sparkle', '💚': 'wallet', '💛': 'wallet', '🧡': 'wallet', '❤️': 'heart', '▶': 'play', '❚❚': 'pause', '🏭': 'factory', '🛡️': 'shield', '🛡': 'shield', '🔥': 'flame', '🎁': 'gift', '🔁': 'refresh', '↩️': 'undo', '↺': 'refresh', '🏬': 'store', '🐶': 'paw', '🐾': 'paw', '✅': 'check', '🛒': 'bag', '📍': 'pin', '🏦': 'bank', '📱': 'phone', '📦': 'box', '😕': 'alert', '📈': 'chart', '💬': 'chat', '🧾': 'receipt', '🎨': 'palette', '📏': 'ruler', '⏳': 'clock', '❌': 'x', '➤': 'send', '🏢': 'briefcase', '🏨': 'hotel' };
+const EMO_RE = /(\p{Extended_Pictographic}(?:️|‍\p{Extended_Pictographic}️?)*|❚❚|[▶➤↺]️?)/gu;
+const KEEP = '©®™★☆✓✔✦';
+const fx = s => s.replace(EMO_RE, m => { if (KEEP.includes(m)) return m; const k = EMO[m] || EMO[m.replace(/️/g, '')]; return k ? icon(k) : '' }).replace(/ {2,}/g, ' ');
+// Cualquier HTML que se pinte pasa por fx: así ningún emoji llega a la pantalla y todos los íconos son iguales.
+['innerHTML'].forEach(prop => { const d = Object.getOwnPropertyDescriptor(Element.prototype, prop); Object.defineProperty(Element.prototype, prop, { configurable: true, get() { return d.get.call(this) }, set(v) { d.set.call(this, typeof v === 'string' && EMO_RE.test(v) ? (EMO_RE.lastIndex = 0, fx(v)) : v); EMO_RE.lastIndex = 0 } }) });
+const _iah = Element.prototype.insertAdjacentHTML; Element.prototype.insertAdjacentHTML = function (pos, html) { EMO_RE.lastIndex = 0; const ok = typeof html === 'string' && EMO_RE.test(html); EMO_RE.lastIndex = 0; return _iah.call(this, pos, ok ? fx(html) : html) };
+window.REY_ICON = icon; window.REY_FX = fx;
 
 /* ───── Medición (simulada): Meta Pixel + GA4 + recorrido para el CRM ───── */
 window.dataLayer = window.dataLayer || [];
@@ -43,7 +101,7 @@ function addToCart(id, size, color, qty = 1, disc = 0, silent) {
   const l = { id, size, color, qty, disc }; const ex = cart.find(x => lineKey(x) === lineKey(l));
   if (ex) { ex.qty = Math.min(9, ex.qty + qty); ex.disc = Math.max(ex.disc || 0, disc) } else cart.push(l);
   saveCart(); track('AddToCart', { name: p.name, value: linePrice(l) * qty, content_ids: [id] });
-  if (!silent) toast('<img src="' + img(p.imgs[0], 400) + '" alt="">' + '<div><b>' + esc(p.name) + '</b> agregado<br><a href="#" data-open-cart>Ver carrito →</a></div>');
+  if (!silent) toast('<img src="' + lineImg(l, 400) + '" alt="">' + '<div><b>' + esc(p.name) + '</b> agregado<br><a href="#" data-open-cart>Ver carrito →</a></div>');
 }
 let toastT; function toast(html, ms = 3600) { const t = $('#toast'); t.innerHTML = html; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), ms); }
 
@@ -53,7 +111,7 @@ function openCart() {
   const ups = P.find(p => p.id === 'almohada-viscoelastica' && !cart.some(l => l.id === p.id)) || P.find(p => p.id === 'set-puff-mesa' && !cart.some(l => l.id === p.id));
   d.innerHTML = '<div class="dhead"><h3>Tu carrito (' + T.items + ')</h3><button class="x" data-close aria-label="Cerrar">×</button></div>' +
     (cart.length ? '<div class="dbody"><div class="ship-meter">🚚 <b>Envío GRATIS</b> en Pereira, Dosquebradas, Santa Rosa, Manizales, Armenia y Cartago. Lo confirmas con tu municipio en el siguiente paso.</div>' +
-      groups.map(b => '<div class="cgroup"><h4><span>' + brandName(b) + '</span><span>' + money(T[b]) + '</span></h4>' + cart.map((l, i) => ({ l, i })).filter(x => byId(x.l.id).brand === b).map(({ l, i }) => { const p = byId(l.id); return '<div class="cline"><img src="' + img(p.imgs[0], 400) + '" alt=""><div><b>' + esc(p.name) + '</b><span class="meta">' + esc(p.sizes[l.size].l) + (l.color ? ' · ' + esc(l.color) : '') + (l.disc ? ' · Combo -' + l.disc * 100 + '%' : '') + '</span><div class="mini-qty"><button data-q="' + i + '" data-d="-1" aria-label="Menos">−</button><span>' + l.qty + '</span><button data-q="' + i + '" data-d="1" aria-label="Más">+</button> <button class="rm" data-rm="' + i + '">Quitar</button></div></div><b>' + money(linePrice(l) * l.qty) + '</b></div>' }).join('') + '</div>').join('') +
+      groups.map(b => '<div class="cgroup"><h4><span>' + brandName(b) + '</span><span>' + money(T[b]) + '</span></h4>' + cart.map((l, i) => ({ l, i })).filter(x => byId(x.l.id).brand === b).map(({ l, i }) => { const p = byId(l.id); return '<div class="cline"><img src="' + lineImg(l, 400) + '" alt=""><div><b>' + esc(p.name) + '</b><span class="meta">' + esc(p.sizes[l.size].l) + (l.color ? ' · ' + esc(l.color) : '') + (l.disc ? ' · Combo -' + l.disc * 100 + '%' : '') + '</span><div class="mini-qty"><button data-q="' + i + '" data-d="-1" aria-label="Menos">−</button><span>' + l.qty + '</span><button data-q="' + i + '" data-d="1" aria-label="Más">+</button> <button class="rm" data-rm="' + i + '">Quitar</button></div></div><b>' + money(linePrice(l) * l.qty) + '</b></div>' }).join('') + '</div>').join('') +
       (ups ? '<div class="upsell"><img src="' + img(ups.imgs[0], 400) + '" alt=""><div style="flex:1"><b style="font-size:13.5px">Complétalo con ' + esc(ups.name) + '</b><br><span class="small muted">' + money(ups.price) + '</span></div><button class="btn sm" data-add="' + ups.id + '">Agregar</button></div>' : '') +
       (groups.length > 1 ? '<p class="small muted">🔒 Tu compra incluye productos de dos marcas: verás dos cobros separados, uno para cada una, en el mismo pago.</p>' : '') +
       '</div><div class="dfoot"><div class="totals"><div><span>Subtotal</span><span>' + money(T.total) + '</span></div><div><span>Envío</span><span>Se calcula con tu municipio</span></div><div class="grand"><span>Total</span><span>' + money(T.total) + '</span></div></div><a class="btn block shine" style="margin-top:14px" href="' + url('checkout/') + '" data-link data-close>Finalizar compra →</a><a class="btn block ghost" style="margin-top:8px" target="_blank" rel="noopener" href="' + waLink(cartText()) + '">Prefiero comprar por WhatsApp</a><p class="small muted" style="text-align:center;margin:10px 0 0">Paga con tarjeta, PSE, Nequi, Addi o Sistecrédito</p></div>'
@@ -70,7 +128,7 @@ function card(p, i = 0) {
   const minP = Math.min(...p.sizes.map(s => s.p));
   return '<article class="card rv d' + (i % 4) + '"><a class="ph" href="' + url('producto/' + p.id + '/') + '" data-link aria-label="' + esc(p.name) + '"><img src="' + img(p.imgs[0], 400) + '" srcset="' + img(p.imgs[0], 400) + ' 400w, ' + img(p.imgs[0]) + ' 800w" sizes="(max-width:900px) 50vw, 25vw" width="400" height="400" loading="lazy" alt="' + esc(p.name) + '">' +
     (p.imgs[1] ? '<img class="alt" src="' + img(p.imgs[1], 400) + '" width="400" height="400" loading="lazy" alt="">' : '') +
-    '<span class="tags">' + (p.badge ? '<span class="tag red">' + esc(p.badge) + '</span>' : '') + (p.bestseller ? '<span class="tag">Más vendido</span>' : '') + (p.recolor ? '<span class="tag dark">Cambia el color</span>' : '') + '</span>' +
+    '<span class="tags">' + (p.badge ? '<span class="tag red">' + esc(p.badge) + '</span>' : '') + (p.nuevo ? '<span class="tag gold">Nuevo</span>' : '') + (p.bestseller && !p.nuevo ? '<span class="tag">Más vendido</span>' : '') + (p.recolor ? '<span class="tag dark">Cambia el color</span>' : '') + '</span>' +
     '</a><div class="quick"><button class="btn sm block" data-add="' + p.id + '">Agregar al carrito</button></div>' +
     '<span class="brandname">' + brandName(p.brand) + '</span><h3><a href="' + url('producto/' + p.id + '/') + '" data-link>' + esc(p.name) + '</a></h3><p class="tl">' + esc(p.tagline) + '</p>' +
     '<div class="price">' + (p.sizes.length > 1 ? '<span class="from">Desde </span>' : '') + money(minP) + '</div>' +
@@ -89,7 +147,7 @@ V.home = () => {
   '<div class="hero-art" id="heroArt"><div class="tile t1" data-par="-0.04"><img src="' + img('gd-1') + '" alt="Colchón Gran Duque" fetchpriority="high" width="800" height="800"></div>' +
   '<div class="tile t2" data-par="0.06"><video muted playsinline loop preload="none" poster="' + img('gd-video-poster') + '" data-src="' + asset('video/gran-duque.mp4') + '" aria-label="Video Gran Duque"></video></div>' +
   '<div class="tile t3" data-par="0.1"><img src="' + img('venecia', 400) + '" alt="Sala Venecia" width="400" height="400"></div>' +
-  '<div class="chip-float c1"><b>Base cama GRATIS</b>con tu Gran Duque doble</div><div class="chip-float c2"><b>40 cm</b>doble pillow top</div></div></div></section>' +
+  '<a class="chip-float c1" href="' + url('producto/colchon-gran-duque/') + '" data-link><b>Base cama GRATIS</b>con tu Gran Duque doble</a><a class="chip-float c2" href="' + url('producto/colchon-gran-duque/') + '" data-link><b>40 cm</b>doble pillow top</a></div></div></section>' +
   bfBanner() +
   '<section class="section"><div class="wrap"><span class="kicker rv">Dos marcas, un mismo hogar</span><h2 class="rv">¿Qué quieres renovar hoy?</h2><div class="worlds">' +
   '<a class="world rv" href="' + url('colchones/') + '" data-link><img src="' + img('h-gd') + '" alt="" loading="lazy"><div class="in"><span class="kicker">Colchones El Rey</span><h3>Tu descanso, a tu medida.</h3><p>Colchones, camas y almohadas de fábrica. Levántate sin dolor de espalda y con energía de rey.</p><div class="pills"><span>Gran Duque</span><span>Camas de lujo</span><span>Almohadas</span></div></div></a>' +
@@ -99,11 +157,18 @@ V.home = () => {
   homeBand(R.homes[0], true) +
   '<section class="section"><div class="wrap"><span class="kicker rv">Compra por espacio</span><h2 class="rv">Cada rincón, resuelto.</h2><div class="rooms">' +
   [['habitacion', 'Habitación', 'Colchones y camas', 'h-gd'], ['sala', 'Sala', 'Salas y esquineras', 'h-capriani'], ['comedor', 'Comedor', '4 y 6 puestos', 'h-orion']].map(([r, n, s, im], i) => '<a class="room rv d' + i + '" href="' + url(r + '/') + '" data-link><img src="' + img(im, 800) + '" alt="" loading="lazy"><span>' + n + '<small>' + s + ' →</small></span></a>').join('') + '</div></div></section>' +
-  feature() + reviews() + why() + stores() + faq();
+  feature() + novedades() + reviews() + why() + proyectosTeaser() + stores() + faq();
 };
+function novedades() {
+  const ns = P.filter(p => p.nuevo);
+  return '<section class="section"><div class="wrap"><div class="sec-top"><div><span class="kicker rv">Novedades</span><h2 class="rv">Lo último que llegó al almacén.</h2></div><a class="link" href="' + url('novedades/') + '" data-link>Ver todas las novedades →</a></div><div class="grid">' + ns.map(card).join('') + '</div></div></section>';
+}
+function proyectosTeaser() {
+  return '<section class="section"><div class="wrap"><a class="proj-teaser rv" href="' + url('proyectos/') + '" data-link><div><span class="kicker">Proyectos a la medida</span><h2>¿Amoblas un hotel, un negocio o tu casa completa?</h2><p>Colchones, camas, salas y comedores por volumen, con asesoría y cotización por escrito.</p><span class="btn">Cotizar mi proyecto →</span></div><div class="proj-icons"><span>🏢</span><span>🏨</span><span>🏠</span></div></a></div></section>';
+}
 function bfBanner() {
   const items = ['colchon-gran-duque', 'sala-venecia', 'cama-gran-duque-lujo'].map(byId);
-  return '<section class="section" style="padding-bottom:0"><div class="wrap"><div class="bf-banner rv"><div><span class="kicker">Temporada Black Friday</span><h2>Lo que tu casa pedía, al precio que estabas esperando.</h2><p>Selección especial El Rey mientras duren las unidades. Base cama gratis, precios especiales y envío gratis en 6 ciudades.</p><span class="bf-tag">Hasta agotar unidades</span><div class="bf-strip">' +
+  return '<section class="section" style="padding-bottom:0"><div class="wrap"><div class="bf-banner rv"><div><span class="kicker">Temporada Black Friday</span><h2>Lo que tu casa pedía, al precio que estabas esperando.</h2><p>Selección especial El Rey mientras duren las unidades. Base cama gratis, precios especiales y envío gratis en 6 ciudades.</p><a class="bf-tag" href="' + url('promos/') + '" data-link>Hasta agotar unidades</a><div class="bf-strip">' +
     items.map(p => '<a href="' + url('producto/' + p.id + '/') + '" data-link><img src="' + img(p.imgs[0], 400) + '" alt=""><span>' + esc(p.name) + '<b>' + money(p.price) + '</b></span></a>').join('') + '</div></div>' +
     '<div><p class="small" style="color:#bdb3a4;margin:0 0 8px">Termina en</p><div class="countdown" id="countdown"><div><b>00</b><small>días</small></div><div><b>00</b><small>horas</small></div><div><b>00</b><small>min</small></div><div><b>00</b><small>seg</small></div></div><a class="btn gold shine" style="margin-top:22px" href="' + url('promos/') + '" data-link>Ver todas las promos →</a></div></div></div></section>';
 }
@@ -129,7 +194,7 @@ function renderQuiz(step = 0) {
   let fit = pool.filter(p => Math.min(...p.sizes.map(s => s.p)) <= bud).sort((a, b) => (b.bestseller - a.bestseller) || b.price - a.price);
   if (!fit.length) fit = pool.sort((a, b) => a.price - b.price);
   const r = fit[0], alt = fit[1];
-  const why = qa.what === 'sleep' ? (qa.who === '1' ? 'Para dormir solo te sobra espacio en una semidoble o doble.' : 'En pareja, la medida doble o queen evita que se despierten el uno al otro.') : qa.what === 'sala' ? (qa.who === '6' ? 'Si recibes visitas, una esquinera o sala con poltronas da puestos para todos.' : 'Elige el color en la foto para verla en tu espacio.') : qa.what === 'comedor' ? 'Escoge 4 o 6 puestos según tu familia.' : 'Empieza por lo que más usas: el colchón. Luego completa la sala con combo.';
+  const why = qa.what === 'sleep' ? (qa.who === '1' ? 'Para dormir solo te sobra espacio en una semidoble o doble.' : 'En pareja, la medida doble o queen evita que se despierten el uno al otro.') : qa.what === 'sala' ? (qa.who === '6' ? 'Si recibes visitas, una esquinera o sala con poltronas da puestos para todos.' : 'Elige el color en la foto para verla en tu espacio.') : qa.what === 'comedor' ? 'Te confirmamos puestos y medidas según tu espacio.' : 'Empieza por lo que más usas: el colchón. Luego completa la sala con combo.';
   track('Lead', { name: 'Quiz · ' + r.name });
   el.innerHTML = '<div class="quiz-steps">' + QZ.map(() => '<i class="on"></i>').join('') + '</div><span class="kicker">Tu opción ideal</span><div class="quiz-result" style="margin-top:12px"><img src="' + img(r.imgs[0], 400) + '" alt=""><div><h3 style="margin:0">' + esc(r.name) + '</h3><div class="price">' + money(Math.min(...r.sizes.map(s => s.p))) + '</div><p class="small" style="margin:4px 0">' + why + '</p></div></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><a class="btn sm" href="' + url('producto/' + r.id + '/') + '" data-link>Ver y personalizar</a>' + (alt ? '<a class="btn sm ghost" href="' + url('producto/' + alt.id + '/') + '" data-link>Otra opción: ' + esc(alt.name) + '</a>' : '') + '<button class="btn sm ghost" data-qz-reset>Repetir</button></div>';
 }
@@ -146,18 +211,18 @@ function feature() {
 }
 function reviews() {
   return '<section class="section reviews-wrap"><div class="wrap"><div class="rev-head"><div><span class="kicker rv">Lo que dicen en Google</span><h2 class="rv">Clientes que ya duermen como reyes.</h2><span class="g-logo"><span style="color:#4285F4">G</span>oogle · Reseñas textuales de la sede Cerritos</span></div><div class="rev-nav"><button class="icon-btn" data-rev="-1" aria-label="Anterior">←</button><button class="icon-btn" data-rev="1" aria-label="Siguiente">→</button></div></div>' +
-    '<div class="rev-track" id="revs">' + R.reviews.map(r => '<article class="rev"><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><q>' + esc(r.t) + '</q><div class="who"><span class="av">' + esc(r.n[0]) + '</span><div><b>' + esc(r.n) + '</b><br><span class="muted small">' + esc(r.w) + (r.g ? ' · ' + r.g : '') + '</span></div></div></article>').join('') + '</div>' +
+    '<div class="rev-track" id="revs">' + R.reviews.map(r => '<a class="rev" href="' + R.reviewsUrl + '" target="_blank" rel="noopener" aria-label="Ver reseña de ' + esc(r.n) + ' en Google"><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><q>' + esc(r.t) + '</q><div class="who"><span class="av">' + esc(r.n[0]) + '</span><div><b>' + esc(r.n) + '</b><br><span class="muted small">' + esc(r.w) + (r.g ? ' · ' + r.g : '') + '</span></div></div></a>').join('') + '</div>' +
     '<a class="link" href="' + R.reviewsUrl + '" target="_blank" rel="noopener">Ver todas las reseñas en Google →</a></div></section>';
 }
 function why() {
-  return '<section class="section"><div class="wrap"><div class="why">' + [['🏭', 'De fábrica', 'Colchones hechos por El Rey: mejor precio sin intermediarios.'], ['🚚', 'Envío gratis', 'En Pereira, Dosquebradas, Santa Rosa, Manizales, Armenia y Cartago.'], ['💳', 'Paga a tu ritmo', 'Tarjeta, PSE, Nequi o a cuotas con Addi y Sistecrédito.'], ['🛡️', 'Garantía real', '5 años en el Gran Duque y atención por WhatsApp.']].map((w, i) => '<div class="rv d' + i + '"><span class="ic">' + w[0] + '</span><b>' + w[1] + '</b><p>' + w[2] + '</p></div>').join('') + '</div></div></section>';
+  return '<section class="section"><div class="wrap"><div class="why">' + [['🏭', 'De fábrica', 'Colchones de la casa El Rey, sin intermediarios.', 'colchones/'], ['🚚', 'Envío gratis', 'En Pereira, Dosquebradas, Santa Rosa, Manizales, Armenia y Cartago.', '#faq'], ['💳', 'Paga a tu ritmo', 'Tarjeta, PSE, Nequi o a cuotas con Addi y Sistecrédito.', '#faq'], ['🛡️', 'Garantía real', '5 años en el Gran Duque y atención por WhatsApp.', 'producto/colchon-gran-duque/']].map((w, i) => '<a class="rv d' + i + '" href="' + url(w[3]) + '" data-link><span class="ic">' + w[0] + '</span><b>' + w[1] + '</b><p>' + w[2] + '</p><span class="go">Ver más →</span></a>').join('') + '</div></div></section>';
 }
 function stores() {
   return '<section class="section" style="padding-top:0"><div class="wrap"><span class="kicker rv">Ven a probarlos</span><h2 class="rv">Acuéstate antes de decidir.</h2><div class="stores">' + R.stores.map(s => '<div class="store rv"><span class="kicker">' + esc(s.city) + '</span><h3>' + esc(s.addr) + '</h3><p class="muted small">Prueba camas, colchones y muebles en el almacén.</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:auto"><a class="btn sm wa" target="_blank" rel="noopener" href="https://wa.me/' + s.wa + '?text=' + encodeURIComponent('Hola El Rey 👑 vi la tienda en línea y quiero asesoría') + '" data-wa>WhatsApp ' + s.waLabel + '</a><a class="btn sm ghost" target="_blank" rel="noopener" href="' + s.map + '">Cómo llegar</a></div></div>').join('') + '</div></div></section>';
 }
 function faq() {
   const f = [['¿El envío es gratis?', 'Sí en Pereira, Dosquebradas, Santa Rosa de Cabal, Manizales, Armenia y Cartago. En 55 municipios más del Eje Cafetero y el norte del Valle cuesta $40.000. Entregamos en zona urbana; en zona rural, en el casco urbano.'], ['¿Puedo pagar a cuotas?', 'Sí: con tarjeta de crédito o con Addi y Sistecrédito. También aceptamos PSE y Nequi.'], ['Compré colchón y sala, ¿por qué veo dos cobros?', 'Colchones El Rey y Muebles El Rey son dos empresas. Pagas una sola vez y cada marca recibe lo suyo con su propia factura.'], ['¿Qué garantía tiene el Gran Duque?', '5 años. No cubre el forro por humedad. Rótalo cada 30 días y evita que los niños salten sobre él.'], ['¿Puedo ver la tela antes?', 'Sí. En la foto cambias el color como referencia, y en el almacén o por WhatsApp te mostramos la muestra física.'], ['¿Y si me arrepiento?', 'Por ser una compra en línea tienes derecho de retracto: 5 días hábiles desde la entrega para devolver el producto sin usar (Ley 1480 de 2011). Si pagaste con tarjeta o PSE también puedes solicitar la reversión del pago en los casos que la ley contempla.']];
-  return '<section class="section" style="padding-top:0"><div class="wrap" style="max-width:860px"><span class="kicker rv">Preguntas frecuentes</span><h2 class="rv">Compra tranquilo.</h2><div class="faq">' + f.map(x => '<details><summary>' + x[0] + '</summary><p>' + x[1] + '</p></details>').join('') + '</div></div></section>';
+  return '<section class="section" id="faq" style="padding-top:0"><div class="wrap" style="max-width:860px"><span class="kicker rv">Preguntas frecuentes</span><h2 class="rv">Compra tranquilo.</h2><div class="faq">' + f.map(x => '<details><summary>' + x[0] + '</summary><p>' + x[1] + '</p></details>').join('') + '</div></div></section>';
 }
 
 /* Tienda con filtros */
@@ -167,7 +232,8 @@ const SHOP = {
   'muebles': { t: 'Muebles El Rey', k: 'Salas y comedores', pre: { brand: ['muebles'] } },
   'muebles/salas': { t: 'Salas', k: 'Muebles El Rey', pre: { brand: ['muebles'], cat: ['salas'] } },
   'muebles/comedores': { t: 'Comedores', k: 'Muebles El Rey', pre: { brand: ['muebles'], cat: ['comedores'] } },
-  'promos': { t: 'Black Friday El Rey', k: 'Promociones', pre: { promo: true } }
+  'promos': { t: 'Black Friday El Rey', k: 'Promociones', pre: { promo: true } },
+  'novedades': { t: 'Novedades', k: 'Recién llegados al almacén', pre: { nuevo: true } }
 };
 const CATS = { colchones: 'Colchones', camas: 'Camas', almohadas: 'Almohadas', salas: 'Salas', comedores: 'Comedores', complementos: 'Complementos' };
 const ROOMS = { habitacion: 'Habitación', sala: 'Sala', comedor: 'Comedor' };
@@ -175,7 +241,7 @@ const SIZES = ['Sencillo', 'Semidoble', 'Doble', 'Queen', 'King'];
 let F = {};
 V.shop = key => {
   const cfg = SHOP[key]; F = { brand: [], cat: [], room: [], size: [], color: [], max: 4000000, q: '', sort: 'rel', ...JSON.parse(JSON.stringify(cfg.pre)) };
-  const tabs = [['tienda', 'Todo'], ['colchones', 'Colchones El Rey'], ['muebles', 'Muebles El Rey'], ['muebles/salas', 'Salas'], ['muebles/comedores', 'Comedores'], ['promos', '🔥 Black Friday']];
+  const tabs = [['tienda', 'Todo'], ['colchones', 'Colchones El Rey'], ['muebles', 'Muebles El Rey'], ['muebles/salas', 'Salas'], ['muebles/comedores', 'Comedores'], ['novedades', '✨ Novedades'], ['promos', '🔥 Black Friday']];
   return '<section class="shop-head"><div class="wrap"><div class="crumbs"><a href="' + url('') + '" data-link>Inicio</a> / ' + cfg.t + '</div><span class="kicker">' + cfg.k + '</span><h1 style="font-size:clamp(34px,5vw,60px);margin-bottom:6px">' + cfg.t + '</h1>' + (key === 'promos' ? '<p>Selección Black Friday: precios especiales, base cama gratis y combos. Hasta agotar unidades.</p>' : '<p>Filtra por medida, color, espacio y precio. Envío gratis en 6 ciudades del Eje Cafetero.</p>') + '<div class="tabs">' + tabs.map(t => '<a href="' + url(t[0] + '/') + '" data-link class="' + (t[0] === key ? 'on' : '') + '">' + t[1] + '</a>').join('') + '</div></div></section>' +
     (key === 'promos' ? '<div style="margin-top:-10px">' + bfBanner() + '</div>' : '') +
     '<div class="wrap shop"><aside class="filters" id="filters">' + filtersHTML() + '</aside><div><div class="toolbar"><button class="btn sm dark filter-toggle" id="ftog">Filtros</button><input class="search-in" id="q" placeholder="Busca: Gran Duque, sala gris, comedor…" aria-label="Buscar"><select id="sort" aria-label="Ordenar"><option value="rel">Recomendados</option><option value="asc">Menor precio</option><option value="desc">Mayor precio</option><option value="new">Más vendidos</option></select></div><div class="active-chips" id="chips"></div><p class="count small" id="count"></p><div class="grid" id="results"></div></div></div>';
@@ -195,7 +261,7 @@ function applyFilters() {
   const q = F.q.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   let r = P.filter(p => (!F.brand.length || F.brand.includes(p.brand)) && (!F.cat.length || F.cat.includes(p.cat)) && (!F.room.length || F.room.includes(p.room)) &&
     (!F.size.length || p.sizes.some(s => F.size.some(z => s.l.startsWith(z)))) && (!F.color.length || (p.colors || []).some(c => F.color.includes(c.id))) &&
-    Math.min(...p.sizes.map(s => s.p)) <= F.max && (!F.promo || p.promo) &&
+    Math.min(...p.sizes.map(s => s.p)) <= F.max && (!F.promo || p.promo) && (!F.nuevo || p.nuevo) &&
     (!q || (p.name + ' ' + p.tagline + ' ' + p.cat + ' ' + (p.colors || []).map(c => c.name).join(' ')).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').includes(q)));
   const mp = p => Math.min(...p.sizes.map(s => s.p));
   if (F.sort === 'asc') r.sort((a, b) => mp(a) - mp(b)); else if (F.sort === 'desc') r.sort((a, b) => mp(b) - mp(a)); else if (F.sort === 'new') r.sort((a, b) => (b.bestseller || 0) - (a.bestseller || 0));
@@ -265,7 +331,7 @@ function comboUpdate() {
   $$('[data-cmb]').forEach(el => el.classList.toggle('on', PD.combo.has(el.dataset.cmb)));
 }
 function bindProduct() {
-  const { p } = PD; pdUpdate();
+  const { p } = PD; pdUpdate(); preloadVariants(p);
   const sb = $('#stickyBuy'), br = $('.buy-row');
   if (sb && br && 'IntersectionObserver' in window) new IntersectionObserver(([e]) => { const on = !e.isIntersecting && e.boundingClientRect.top < 0; sb.classList.toggle('on', on); document.body.classList.toggle('has-sticky', on && innerWidth <= 900) }).observe(br);
   $('#shipSel').addEventListener('change', e => { const v = e.target.value, o = $('#shipOut'); if (!v) return o.textContent = ''; if (v === 'otro') { o.className = 'ship-out'; o.innerHTML = 'Escríbenos y te cotizamos el envío → <a class="link" target="_blank" rel="noopener" href="' + waLink('Hola, quiero cotizar envío de ' + p.name + ' a mi municipio') + '">WhatsApp</a>'; return } const free = R.ship.free.includes(v); o.className = 'ship-out' + (free ? ' free' : ''); o.textContent = free ? '✓ Envío GRATIS a ' + v : 'Envío a ' + v + ': ' + money(R.ship.fee) + ' (zona urbana)'; store.set('rey.city', v) });
@@ -273,57 +339,34 @@ function bindProduct() {
   $('#gmain').addEventListener('click', e => { if (window.innerWidth > 900 && $('#mainImg').tagName === 'IMG') { const g = $('#gmain'); g.classList.toggle('zoom'); const r = g.getBoundingClientRect(); $('#mainImg').style.transformOrigin = ((e.clientX - r.left) / r.width * 100) + '% ' + ((e.clientY - r.top) / r.height * 100) + '%' } });
   $$('[data-cmb] input').forEach(i => i.addEventListener('change', () => { i.checked ? PD.combo.add(i.value) : PD.combo.delete(i.value); comboUpdate() }));
 }
-function showImg(i) {
-  PD.imgI = i; const m = $('#mainImg'); m.src = img(PD.p.imgs[i]); $$('[data-thumb]').forEach(b => b.classList.toggle('on', +b.dataset.thumb === i));
-  if (i !== 0) $('#rcNote').classList.remove('on'); else if (PD.p.recolor && PD.color > 0) applyColor();
-}
-
-/* ───── Recoloreado de tela en la foto (canvas, solo fotos de estudio) ───── */
-const rcCache = {};
-async function applyColor() {
-  const p = PD.p, c = p.colors[PD.color], note = $('#rcNote');
+/* ───── Color de tela: fotos precalculadas por color (scripts/recolor.cjs), precargadas al abrir la ficha ───── */
+const variantImg = (p, ci, size) => img(p.imgs[0] + (p.recolor && ci > 0 ? '-' + p.colors[ci].id : ''), size);
+const colorIdx = (p, name) => p.colors ? Math.max(0, p.colors.findIndex(c => c.name === name)) : 0;
+const lineImg = (l, size) => { const p = byId(l.id); return variantImg(p, colorIdx(p, l.color), size) };
+const preloaded = new Set();
+function preloadVariants(p) {
   if (!p.recolor) return;
-  if (PD.imgI !== 0) showImg(0);
-  const m = $('#mainImg');
-  if (PD.color === 0) { m.src = img(p.imgs[0]); note.classList.remove('on'); return }
-  const key = p.id + c.id; note.textContent = 'Aplicando ' + c.name + '…'; note.classList.add('on');
-  if (!rcCache[key]) rcCache[key] = await recolor(img(p.imgs[0]), c.hex);
-  if (PD.p !== p || p.colors[PD.color] !== c) return;
-  m.src = rcCache[key]; note.textContent = 'Vista de referencia en ' + c.name + '. Te confirmamos la tela real por WhatsApp antes de despachar.';
+  p.colors.forEach((c, i) => { if (!i) return; [variantImg(p, i), variantImg(p, i, 400)].forEach(src => { if (preloaded.has(src)) return; preloaded.add(src); const im = new Image(); im.decoding = 'async'; im.src = src }) });
 }
-const maskCache = {};
-function loadImage(src) { return new Promise((ok, ko) => { const i = new Image(); i.onload = () => ok(i); i.onerror = ko; i.src = src }) }
-async function recolor(src, hex) {
-  const im = await loadImage(src), W = im.naturalWidth, H = im.naturalHeight, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
-  const ctx = cv.getContext('2d', { willReadFrequently: true }); ctx.drawImage(im, 0, 0);
-  const d = ctx.getImageData(0, 0, W, H), px = d.data, N = W * H;
-  let mk = maskCache[src];
-  if (!mk) {
-    const L = new Float32Array(N), S = new Float32Array(N);
-    for (let i = 0; i < N; i++) { const r = px[i * 4] / 255, g = px[i * 4 + 1] / 255, b = px[i * 4 + 2] / 255, mx = Math.max(r, g, b), mn = Math.min(r, g, b); L[i] = (mx + mn) / 2; S[i] = mx === mn ? 0 : (mx - mn) / (1 - Math.abs(2 * L[i] - 1)) }
-    // Fondo: crecimiento de región desde los bordes; se detiene donde hay borde (cambio brusco de color)
-    const bg = new Uint8Array(N), st = [];
-    const near = (i, j) => Math.abs(px[i * 4] - px[j * 4]) + Math.abs(px[i * 4 + 1] - px[j * 4 + 1]) + Math.abs(px[i * 4 + 2] - px[j * 4 + 2]) < 14;
-    for (let x = 0; x < W; x++) { st.push(x, (H - 1) * W + x) } for (let y = 0; y < H; y++) { st.push(y * W, y * W + W - 1) }
-    st.forEach(i => { if (L[i] > 0.6) bg[i] = 1 }); const q = st.filter(i => bg[i]);
-    while (q.length) { const i = q.pop(), x = i % W; for (const j of [x > 0 ? i - 1 : -1, x < W - 1 ? i + 1 : -1, i - W, i + W]) { if (j < 0 || j >= N || bg[j] || L[j] < 0.6) continue; if (near(i, j)) { bg[j] = 1; q.push(j) } } }
-    // erosión inversa: 2 px de margen alrededor del fondo para evitar halos
-    for (let k = 0; k < 2; k++) { const add = []; for (let i = W; i < N - W; i++) if (!bg[i] && (bg[i - 1] || bg[i + 1] || bg[i - W] || bg[i + W])) add.push(i); add.forEach(i => bg[i] = 1) }
-    const w = new Float32Array(N); let sum = 0, cnt = 0;
-    for (let i = 0; i < N; i++) { if (bg[i]) continue; const l = L[i], s = S[i]; if (l < 0.1 || l > 0.975 || s > 0.24) continue; const ws = Math.min(1, (0.24 - s) / 0.1) * Math.min(1, (l - 0.1) / 0.06) * Math.min(1, (0.975 - l) / 0.03); w[i] = ws; sum += l * ws; cnt += ws }
-    mk = maskCache[src] = { w, L, mean: sum / Math.max(cnt, 1) };
-  }
-  const tr = parseInt(hex.slice(1, 3), 16), tg = parseInt(hex.slice(3, 5), 16), tb = parseInt(hex.slice(5, 7), 16);
-  const tl = (Math.max(tr, tg, tb) + Math.min(tr, tg, tb)) / 510;
-  for (let i = 0; i < N; i++) {
-    const a = mk.w[i]; if (!a) continue;
-    const k = mk.L[i] / mk.mean, f = Math.pow(k, 1.15);
-    let r = tr * f, g = tg * f, b = tb * f;
-    if (tl > .7) { const lift = (k - 1) * 90; r += lift; g += lift; b += lift } // telas claras conservan brillo
-    px[i * 4] = px[i * 4] * (1 - a) + Math.min(255, r) * a; px[i * 4 + 1] = px[i * 4 + 1] * (1 - a) + Math.min(255, g) * a; px[i * 4 + 2] = px[i * 4 + 2] * (1 - a) + Math.min(255, b) * a;
-  }
-  ctx.putImageData(d, 0, 0);
-  return cv.toDataURL('image/webp', .86);
+function colorNote() {
+  const p = PD.p, note = $('#rcNote'); if (!note) return;
+  if (!p.recolor || PD.color <= 0 || PD.imgI !== 0) { note.classList.remove('on'); return }
+  note.textContent = 'Tela ' + p.colors[PD.color].name + ' · foto real con el color de la tela ajustado. Te confirmamos la muestra física por WhatsApp.';
+  note.classList.add('on');
+}
+function showImg(i) {
+  PD.imgI = i; const p = PD.p, m = $('#mainImg');
+  m.src = i === 0 ? variantImg(p, Math.max(PD.color, 0)) : img(p.imgs[i]);
+  $$('[data-thumb]').forEach(b => b.classList.toggle('on', +b.dataset.thumb === i));
+  colorNote();
+}
+function applyColor() {
+  const p = PD.p; if (!p.recolor) return;
+  const m = $('#mainImg'), src = variantImg(p, PD.color);
+  PD.imgI = 0; $$('[data-thumb]').forEach(b => b.classList.toggle('on', +b.dataset.thumb === 0));
+  if (!m.src.endsWith(src)) { m.classList.add('swap'); m.onload = () => m.classList.remove('swap'); m.src = src; if (m.complete) m.classList.remove('swap') }
+  const t0 = $('[data-thumb="0"] img'); if (t0) t0.src = variantImg(p, PD.color, 400);
+  colorNote();
 }
 
 /* Landing para pauta */
@@ -338,6 +381,53 @@ V.landing = key => {
 /* Hogares */
 V.hogares = () => '<section class="shop-head"><div class="wrap"><div class="crumbs"><a href="' + url('') + '" data-link>Inicio</a> / Hogares</div><span class="kicker">Hogares del Eje Cafetero</span><h1 style="font-size:clamp(34px,5vw,60px)">Inspírate. Toca. Llévatelo.</h1><p>Salas, comedores y habitaciones con productos El Rey. Toca el <b>+</b> sobre la foto para ver el producto.</p></div></section>' +
   '<section class="section"><div class="wrap homes-grid">' + R.homes.map((h, i) => '<div class="home-card rv d' + (i % 2) + '"><img src="' + img(h.img, 800) + '" srcset="' + img(h.img, 800) + ' 800w,' + img(h.img) + ' 1600w" sizes="(max-width:900px) 100vw, 50vw" loading="lazy" alt="' + esc(h.title) + '">' + h.spots.map(s => '<button class="spot" style="left:' + s.x + '%;top:' + s.y + '%" data-spot="' + s.id + '" aria-label="Ver ' + esc(byId(s.id).name) + '">+</button>').join('') + '<div class="cap"><small>' + esc(h.place) + '</small><b>' + esc(h.title) + '</b></div></div>').join('') + '</div></section>' + homeBand(R.homes[4]) + reviews();
+
+/* Proyectos personalizados: negocios, hotelería y hogar */
+const PROJ = [
+  ['negocio', 'briefcase', 'Negocios', 'Oficinas, consultorios, salas de espera y locales.', ['Salas y sofás para recepción', 'Comedores para zonas de descanso', 'Entrega coordinada en horario de tu negocio']],
+  ['hoteleria', 'hotel', 'Hotelería', 'Hoteles, hostales, fincas turísticas y alojamientos.', ['Colchones y camas por volumen', 'Salas para lobby y áreas comunes', 'Cotización por habitación o por proyecto']],
+  ['hogar', 'home', 'Hogar', 'Apartamento nuevo, casa de campo o remodelación.', ['Todo el espacio en una sola propuesta', 'Telas y colores para que combine', 'Pago a cuotas con Addi o Sistecrédito']]
+];
+V.proyectos = () => {
+  const P4 = ['colchon-gran-duque', 'cama-gran-duque-lujo', 'sala-imperial', 'comedor-orion'].map(byId);
+  const depts = Object.entries(R.ship.depts);
+  return '<section class="lp-hero"><img src="' + img('h-almacen') + '" srcset="' + img('h-almacen', 800) + ' 800w,' + img('h-almacen') + ' 1600w" sizes="100vw" alt="Almacén El Rey" fetchpriority="high"><div class="wrap"><span class="kicker">Proyectos a la medida</span><h1>Amoblamos tu proyecto: negocio, hotel u hogar.</h1><p>Colchones, camas, salas y comedores por volumen o pensados para tu espacio. Te asesoramos, te cotizamos por escrito y coordinamos la entrega en el Eje Cafetero.</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><a class="btn" href="#proj-form">Cotizar mi proyecto</a><a class="btn wa" target="_blank" rel="noopener" data-wa href="' + waLink('Hola El Rey 👑 tengo un proyecto (negocio, hotel u hogar) y quiero una cotización') + '">💬 Hablar con un asesor</a></div></div></section>' +
+    '<section class="section"><div class="wrap"><span class="kicker">¿Para quién?</span><h2>Un mismo Rey, tres tipos de proyecto.</h2><div class="proj-grid">' +
+    PROJ.map(([k, ic, t, d, items]) => '<article class="proj-card rv"><span class="proj-ic">' + icon(ic) + '</span><h3>' + t + '</h3><p>' + d + '</p><ul>' + items.map(i => '<li>' + i + '</li>').join('') + '</ul><button class="btn sm" data-proj="' + k + '">Cotizar ' + t.toLowerCase() + ' →</button></article>').join('') + '</div></div></section>' +
+    '<section class="section" style="padding-top:0"><div class="wrap"><span class="kicker">Cómo trabajamos</span><h2>De la idea a la entrega, en cuatro pasos.</h2><div class="steps4">' +
+    [['💬', 'Cuéntanos tu proyecto', 'Tipo de espacio, cantidades, ciudad y fecha.'], ['🏬', 'Te asesoramos', 'En el almacén de Cerritos o Cartago, o por videollamada.'], ['🧾', 'Cotización por escrito', 'Productos, telas, precios por volumen y tiempos.'], ['🚚', 'Entrega coordinada', 'Agendamos contigo cada despacho.']].map((x, i) => '<div class="rv d' + i + '"><span class="n">0' + (i + 1) + '</span>' + x[0] + '<b>' + x[1] + '</b><p>' + x[2] + '</p></div>').join('') +
+    '</div><p class="small muted" style="margin-top:14px">Medidas especiales, descuentos por volumen y tiempos de fabricación o entrega se confirman en la cotización.</p></div></section>' +
+    '<section class="section" style="padding-top:0"><div class="wrap"><span class="kicker">Para empezar a imaginarlo</span><h2>Productos que más se piden en proyectos.</h2><div class="grid">' + P4.map(card).join('') + '</div></div></section>' +
+    '<section class="section" id="proj-form" style="padding-top:0"><div class="wrap"><div class="proj-form-wrap"><div><span class="kicker">Cotización sin compromiso</span><h2>Cuéntanos tu proyecto.</h2><p>Te respondemos por WhatsApp desde la línea principal de El Rey con una propuesta a tu medida.</p><div class="lock">🔒 Tus datos solo se usan para responder esta cotización (Ley 1581 de 2012).</div></div>' +
+    '<form id="projForm" novalidate><div class="fields">' +
+    '<div class="field full" data-fld="tipo"><label>Tipo de proyecto</label><div class="radio-cards">' + PROJ.map(([k, ic, t]) => '<label class="rc"><input type="radio" name="tipo" value="' + k + '"><b>' + icon(ic) + ' ' + t + '</b></label>').join('') + '</div><div class="err">Elige el tipo de proyecto</div></div>' +
+    '<div class="field" data-fld="nombre"><label for="p_nombre">Tu nombre</label><input id="p_nombre" name="nombre" autocomplete="name" maxlength="80"><div class="err">Escribe tu nombre</div></div>' +
+    '<div class="field"><label for="p_empresa">Empresa o negocio (opcional)</label><input id="p_empresa" name="empresa" maxlength="80"></div>' +
+    '<div class="field" data-fld="cel"><label for="p_cel">Celular (WhatsApp)</label><input id="p_cel" name="cel" inputmode="tel" maxlength="10" placeholder="3001234567"><div class="err">Celular de 10 dígitos que empiece por 3</div></div>' +
+    '<div class="field" data-fld="mun"><label for="p_mun">Ciudad del proyecto</label><select id="p_mun" name="mun"><option value="">Selecciona</option>' + depts.map(([d, cs]) => '<optgroup label="' + d + '">' + cs.map(c => '<option>' + c + '</option>').join('') + '</optgroup>').join('') + '<option value="otra">Otra ciudad</option></select><div class="err">Elige la ciudad</div></div>' +
+    '<div class="field full" data-fld="que"><label>¿Qué necesitas?</label><div class="chk-row">' + ['Colchones', 'Camas', 'Salas', 'Comedores', 'Complementos'].map(x => '<label class="check"><input type="checkbox" name="que" value="' + x + '"><span>' + x + '</span></label>').join('') + '</div><div class="err">Marca al menos una opción</div></div>' +
+    '<div class="field"><label for="p_cant">Cantidad aproximada</label><input id="p_cant" name="cant" inputmode="numeric" maxlength="4" placeholder="Ej: 12 colchones"></div>' +
+    '<div class="field"><label for="p_fecha">¿Para cuándo?</label><select id="p_fecha" name="fecha"><option>Lo antes posible</option><option>En 1 mes</option><option>En 2 a 3 meses</option><option>Solo estoy cotizando</option></select></div>' +
+    '<div class="field full"><label for="p_msg">Cuéntanos más (opcional)</label><textarea id="p_msg" name="msg" rows="3" maxlength="500" placeholder="Ej: hotel de 10 habitaciones en Salento, camas dobles y una sala para el lobby"></textarea></div>' +
+    '<label class="check full" data-fld="ok"><input type="checkbox" name="ok"><span>Autorizo a El Rey a contactarme por WhatsApp para esta cotización.</span></label>' +
+    '</div><p class="err-line" id="projErr" role="alert"></p><button class="btn block" style="margin-top:10px">Enviar mi proyecto →</button></form></div></div></section>';
+};
+function bindProyectos() {
+  const f = $('#projForm'); if (!f) return;
+  f.addEventListener('change', e => { if (e.target.name === 'tipo') $$('input[name="tipo"]', f).forEach(r => r.closest('.rc').classList.toggle('on', r.checked)) });
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const fd = new FormData(f), d = { tipo: fd.get('tipo'), nombre: (fd.get('nombre') || '').trim(), empresa: (fd.get('empresa') || '').trim(), cel: (fd.get('cel') || '').trim(), mun: fd.get('mun'), que: fd.getAll('que'), cant: fd.get('cant'), fecha: fd.get('fecha'), msg: (fd.get('msg') || '').trim(), ok: !!fd.get('ok') };
+    const bad = { tipo: !d.tipo, nombre: !d.nombre, cel: !/^3\d{9}$/.test(d.cel), mun: !d.mun, que: !d.que.length, ok: !d.ok };
+    $$('[data-fld]', f).forEach(x => x.classList.toggle('bad', !!bad[x.dataset.fld]));
+    if (Object.values(bad).some(Boolean)) { $('#projErr').textContent = bad.ok && !Object.entries(bad).some(([k, v]) => v && k !== 'ok') ? 'Necesitamos tu autorización para responderte por WhatsApp.' : 'Revisa los campos marcados.'; const first = $('.bad', f); first && first.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); return }
+    const tipo = PROJ.find(p => p[0] === d.tipo)[2];
+    store.set('rey.proyecto', d); store.set('rey.co', { ...store.get('rey.co', {}), nombre: d.nombre, cel: d.cel, optin: true, mun: d.mun });
+    track('Lead', { name: 'Proyecto ' + tipo });
+    const txt = 'Hola El Rey, soy ' + d.nombre + (d.empresa ? ' (' + d.empresa + ')' : '') + '. Quiero cotizar un proyecto de ' + tipo.toLowerCase() + ' en ' + (d.mun === 'otra' ? 'otra ciudad' : d.mun) + ': ' + d.que.join(', ') + (d.cant ? ' · cantidad aprox.: ' + d.cant : '') + ' · ' + d.fecha + (d.msg ? '. ' + d.msg : '');
+    f.innerHTML = '<div class="success"><div class="okmark">✓</div><h3>¡Recibido, ' + esc(d.nombre) + '!</h3><p>Tu proyecto de <b>' + tipo.toLowerCase() + '</b> quedó registrado. En la versión real, un asesor te escribe por WhatsApp desde la línea principal con la propuesta.</p><div style="display:grid;gap:8px"><a class="btn wa" target="_blank" rel="noopener" data-wa href="' + waLink(txt) + '">💬 Adelantar la conversación por WhatsApp</a><a class="btn ghost" href="' + url('crm/') + '" data-link>Ver cómo sigue en el CRM →</a></div></div>';
+  });
+}
 
 /* Checkout */
 let CO = { step: 1, d: store.get('rey.co', {}) };
@@ -397,7 +487,7 @@ function updShip() {
 }
 function renderSum() {
   const T = cartTotals(), sh = shipCost();
-  $('#coSum').innerHTML = '<h3 style="margin-top:0">Resumen</h3>' + cart.map(l => { const p = byId(l.id); return '<div class="cline" style="grid-template-columns:56px 1fr auto"><img src="' + img(p.imgs[0], 400) + '" style="width:56px;height:56px" alt=""><div><b style="font-size:13.5px">' + esc(p.name) + ' × ' + l.qty + '</b><span class="meta">' + esc(p.sizes[l.size].l) + (l.color ? ' · ' + esc(l.color) : '') + '</span></div><b style="font-size:14px">' + money(linePrice(l) * l.qty) + '</b></div>' }).join('') +
+  $('#coSum').innerHTML = '<h3 style="margin-top:0">Resumen</h3>' + cart.map(l => { const p = byId(l.id); return '<div class="cline" style="grid-template-columns:56px 1fr auto"><img src="' + lineImg(l, 400) + '" style="width:56px;height:56px" alt=""><div><b style="font-size:13.5px">' + esc(p.name) + ' × ' + l.qty + '</b><span class="meta">' + esc(p.sizes[l.size].l) + (l.color ? ' · ' + esc(l.color) : '') + '</span></div><b style="font-size:14px">' + money(linePrice(l) * l.qty) + '</b></div>' }).join('') +
     '<div class="totals" style="margin-top:12px">' + ['colchones', 'muebles'].filter(b => T[b]).map(b => '<div><span>' + brandName(b) + '</span><span>' + money(T[b]) + '</span></div>').join('') + '<div><span>Envío</span><span>' + (CO.d.mun && CO.d.mun !== 'otro' ? (sh ? money(sh) : 'GRATIS') : 'Por calcular') + '</span></div><div class="grand"><span>Total</span><span>' + money(T.total + sh) + '</span></div></div>' +
     '<p class="small muted" style="margin-top:12px">o 12 cuotas de ~' + money((T.total + sh) / 12) + ' con tarjeta</p><div class="lock">🛡️ Garantía de fábrica · ↩️ 5 días de retracto · 🔁 Te acompañamos por WhatsApp</div>' +
     '<a class="btn wa block sm" style="margin-top:12px" target="_blank" rel="noopener" data-wa href="' + waLink(cartText() + '\n(Tengo una duda antes de pagar)') + '">¿Dudas? Te ayudamos por WhatsApp</a>';
@@ -501,25 +591,28 @@ function render() {
   else if (r.startsWith('producto/')) { html = V.product(r.split('/')[1]); after = () => byId(r.split('/')[1]) && bindProduct() }
   else if (R.landings[r]) html = V.landing(r);
   else if (r === 'hogares') html = V.hogares();
+  else if (r === 'proyectos') { html = V.proyectos(); after = bindProyectos }
   else if (r === 'checkout') { CO.step = 1; html = V.checkout(); after = () => cart.length && bindCO() }
   else if (r === 'propuesta') html = V.propuesta();
   else if (r === 'crm') { html = V.crm(); after = () => loadScript('crm.js').then(() => window.ReyCRM.mount($('#crmRoot'), { R, img, money, esc, url, store, track })) }
   else html = V.notFound();
   app.innerHTML = html; after && after();
   const pr = r.startsWith('producto/') && byId(r.split('/')[1]);
-  document.title = pr ? pr.name + ' · ' + money(pr.price) + ' · ' + brandName(pr.brand) : r === '' ? 'El Rey · Colchones y Muebles en el Eje Cafetero' : SHOP[r] ? SHOP[r].t + ' · El Rey' : R.landings[r] ? R.landings[r].h + ' · El Rey' : ({ hogares: 'Hogares del Eje Cafetero · El Rey', checkout: 'Finalizar compra · El Rey', crm: 'Preview CRM · El Rey', propuesta: 'Propuesta técnica · El Rey' })[r] || 'El Rey';
+  document.title = pr ? pr.name + ' · ' + money(pr.price) + ' · ' + brandName(pr.brand) : r === '' ? 'El Rey · Colchones y Muebles en el Eje Cafetero' : SHOP[r] ? SHOP[r].t + ' · El Rey' : R.landings[r] ? R.landings[r].h + ' · El Rey' : ({ hogares: 'Hogares del Eje Cafetero · El Rey', proyectos: 'Proyectos para negocios, hotelería y hogar · El Rey', checkout: 'Finalizar compra · El Rey', crm: 'Preview CRM · El Rey', propuesta: 'Propuesta técnica · El Rey' })[r] || 'El Rey';
   $$('.nav a').forEach(a => a.classList.toggle('on', a.pathname !== BASE && location.pathname.startsWith(a.pathname)));
   splitText(); observe(); lazyVideos();
+  if (location.hash) { const tg = document.getElementById(location.hash.slice(1)); if (tg) setTimeout(() => tg.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }), 80) }
   if (r.startsWith('producto/')) nudge('¿Dudas con la medida o el color? Te ayudo a elegir 👑', 9000);
   else if (r === 'checkout') nudge('Si tienes una duda antes de pagar, aquí estoy 👋', 20000);
 }
-function go(href) { history.pushState({}, '', href); render(); window.scrollTo({ top: 0, behavior: 'auto' }) }
+function go(href) { history.pushState({}, '', href); window.scrollTo({ top: 0, behavior: 'auto' }); render() }
 const scripts = {};
 function loadScript(n) { return scripts[n] || (scripts[n] = new Promise((ok, ko) => { const s = document.createElement('script'); s.src = asset(n); s.onload = ok; s.onerror = ko; document.body.append(s) })) }
 
 /* ───── Interacción global ───── */
 document.addEventListener('click', e => {
   const a = e.target.closest('a[data-link]');
+  if (a && a.classList.contains('logo') && !e.ctrlKey && !e.metaKey) { e.preventDefault(); closeAll(); window.ReyBot?.close(); if (route() === '' && !location.hash) window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); else go(url('')); return }
   if (a && !e.ctrlKey && !e.metaKey && a.origin === location.origin) { e.preventDefault(); if (a.hasAttribute('data-close')) closeAll(); go(a.pathname + a.hash) ; return }
   const t = e.target.closest('button,a,[data-cmb]'); if (!t) return;
   if (t.matches('[data-open-cart]')) { e.preventDefault(); openCart() }
@@ -540,6 +633,7 @@ document.addEventListener('click', e => {
   if (t.hasAttribute('data-buy')) { addToCart(PD.p.id, PD.size, PD.p.colors ? PD.p.colors[PD.color].name : '', PD.qty, 0, true); go(url('checkout/')) }
   if (t.hasAttribute('data-addcombo')) { addToCart(PD.p.id, PD.size, PD.p.colors ? PD.p.colors[PD.color].name : '', PD.qty, 0, true); PD.combo.forEach(id => addToCart(id, null, null, 1, COMBO_OFF, true)); openCart() }
   if (t.dataset.spot) spotCard(t);
+  if (t.dataset.proj) { const r = $('#projForm input[name="tipo"][value="' + t.dataset.proj + '"]'); if (r) { r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true })) } $('#proj-form')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }) }
   if (t.hasAttribute('data-wa')) track('Contact', { name: 'Clic a WhatsApp' });
   if (t.dataset.chat !== undefined || t.id === 'chatBtn' || t.id === 'nudge') openChat(t.dataset.chat);
   if (t.dataset.setmun) { CO.d.mun = t.dataset.setmun; renderCO() }
@@ -558,7 +652,7 @@ function spotCard(btn) {
   host.append(c); track('ViewContent', { name: 'Hotspot ' + p.name });
 }
 function openChat(q) { loadScript('bot.js').then(() => window.ReyBot.open(q, { R, byId, img, money, esc, url, addToCart, openCart, waLink, track, go, store, cart: () => cart, cartText })) }
-let nudgeT; function nudge(t, ms) { clearTimeout(nudgeT); nudgeT = setTimeout(() => { if (window.ReyBot?.isOpen()) return; const n = $('#nudge'); n.textContent = t; n.classList.add('on'); setTimeout(() => n.classList.remove('on'), 9000) }, ms) }
+let nudgeT; function nudge(t, ms) { clearTimeout(nudgeT); nudgeT = setTimeout(() => { if (window.ReyBot?.isOpen()) return; const n = $('#nudge'); n.innerHTML = esc(t); n.classList.add('on'); setTimeout(() => n.classList.remove('on'), 9000) }, ms) }
 
 /* Animaciones de scroll, parallax, contadores, videos */
 let io;

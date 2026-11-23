@@ -543,3 +543,62 @@ table.cmp th{background:var(--ink);color:#fff;font-family:Montserrat;font-size:1
  .home-band{height:520px}
  .home-card .spot-card,.home-band .spot-card{left:50%!important;top:auto!important;bottom:14px;transform:translateX(-50%);width:calc(100% - 28px);max-width:320px}
 }
+
+/* ═══ Íconos uniformes (reemplazan emojis): rojos sobre claro, blancos sobre oscuro ═══ */
+.ei{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em;color:var(--red);flex:none;stroke-width:1.8}
+.btn .ei,.bf-banner .ei,.chat-top .ei,.msg.me .ei,footer.site .ei,.tag.red .ei,.tag.dark .ei,.chat-launch .ei,.pay-top .ei,.lp-hero .ei,.world .ei,.home-band .ei,.wa-top .ei,.toast .ei,.okmark .ei,.sticky-buy .btn .ei,.kanban .ei{color:#fff}
+.btn.ghost .ei,.btn.gold .ei{color:currentColor}
+.chat-launch .av .ei{width:22px;height:22px}
+.chat-top .av .ei{color:var(--red);width:22px;height:22px}
+.opt .e .ei{width:24px;height:24px}
+.why .ic .ei{width:30px;height:30px}
+.perks .ei{width:22px;height:22px;margin-top:2px}
+.trustline .ei{margin-right:2px}
+.msg .ei{width:1.05em;height:1.05em}
+.wa .ei{width:1em;height:1em;color:#C61E24}
+.btn.wa .ei,a.wa .ei{color:#fff}
+.rc b .ei{margin-right:4px}
+.stars{letter-spacing:2px}
+/* Elementos que ahora son enlaces */
+.why a{display:block;background:var(--cream);border-radius:20px;padding:22px;transition:transform .25s var(--ease),box-shadow .25s}
+.why a:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.why a .go{display:inline-block;margin-top:8px;font:700 13px Montserrat,sans-serif;color:var(--red)}
+a.rev{color:inherit;transition:transform .25s var(--ease)}
+a.rev:hover{transform:translateY(-3px)}
+a.chip-float{color:inherit;cursor:pointer}
+a.chip-float.c2{color:#fff}
+a.bf-tag:hover{filter:brightness(1.1)}
+.paylogos a{border:1px solid #3a3a3a;border-radius:8px;padding:5px 9px;font:700 11.5px Montserrat,sans-serif;color:#eee}
+.paylogos a:hover{border-color:var(--gold-l);color:var(--gold-l)}
+.tag.gold{background:var(--gold);color:#111}
+/* Novedades y Proyectos */
+.sec-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.sec-top h2{margin:6px 0 0}
+.proj-teaser{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;background:var(--ink);color:#fff;border-radius:28px;padding:clamp(26px,4vw,52px);transition:transform .3s var(--ease)}
+.proj-teaser:hover{transform:translateY(-3px)}
+.proj-teaser h2{color:#fff}.proj-teaser p{color:#d9d2c6}
+.proj-teaser .kicker{color:var(--gold-l)}
+.proj-icons{display:flex;gap:16px;justify-content:center}
+.proj-icons span{width:86px;height:86px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center}
+.proj-icons .ei{width:38px;height:38px;color:#fff}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+.proj-card{border:1px solid var(--line);border-radius:22px;padding:26px;display:flex;flex-direction:column;background:#fff}
+.proj-card ul{padding-left:18px;margin:0 0 18px;color:var(--ink2);font-size:14.5px;display:grid;gap:6px}
+.proj-card .btn{margin-top:auto;align-self:flex-start}
+.proj-ic{width:54px;height:54px;border-radius:50%;background:#fff4f3;display:grid;place-items:center}
+.proj-ic .ei{width:28px;height:28px}
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+.steps4>div{background:var(--cream);border-radius:20px;padding:22px;position:relative}
+.steps4 .n{position:absolute;top:16px;right:18px;font:200 30px Montserrat,sans-serif;color:var(--muted)}
+.steps4 .ei{width:30px;height:30px}
+.steps4 b{display:block;font-family:Montserrat,sans-serif;margin:10px 0 4px}
+.steps4 p{font-size:14px;margin:0}
+.proj-form-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;background:var(--cream);border-radius:28px;padding:clamp(22px,4vw,48px);align-items:start}
+.chk-row{display:flex;gap:6px 18px;flex-wrap:wrap}
+.chk-row .check{margin:4px 0}
+.field.bad .radio-cards .rc{border-color:var(--red)}
+label.check.bad span{color:var(--red)}
+.err-line{color:var(--red);font-size:13.5px;min-height:1em;margin:8px 0 0}
+.success{text-align:center;padding:10px}
+@media (max-width:900px){.proj-teaser,.proj-form-wrap{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr}.steps4{grid-template-columns:1fr 1fr}.proj-icons span{width:64px;height:64px}}
+@media (max-width:560px){.steps4{grid-template-columns:1fr}}
